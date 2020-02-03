@@ -25,7 +25,7 @@
         </div>
         <div class="contacts__social">
             <p class="contacts__social__subtitle">Социальные сети</p>
-            <ul class="social">
+            <!-- <ul class="social">
             <li class="social__link-wrap social__link-wrap--fb">
                 <a href="" class="social__link">
                 <img src="img/fb.svg" alt="facebook">
@@ -41,7 +41,8 @@
                 <img src="img/vk.svg" alt="vk">
                 </a>
             </li>
-            </ul>
+            </ul> -->
+            <Social/>
         </div>
         </div>
         <div class="contacts__map">
@@ -57,10 +58,14 @@
 </template>
 
 <script>
+import Social from '@/components/Social.vue'
 export default {
 name: 'Contacts',
 props: {
     msg: String
+},
+components: {
+    Social
 }
 }
 </script>
@@ -69,7 +74,6 @@ props: {
 <style lang="scss">
 @import "@/assets/sass/grid-mixins.scss";
 @import "@/assets/sass/variables.scss";
-
 .contacts {
 
 @media (min-width: $screen-md) {

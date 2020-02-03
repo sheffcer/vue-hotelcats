@@ -75,7 +75,7 @@
   &--intro::after {
     position: absolute;
     content: "";
-    background: url('../img/paw-white.svg') no-repeat center top;
+    background: url('/img/paw-white.svg') no-repeat center top;
     width: 36px;
     height: 36px;
     top: 6px;
@@ -97,7 +97,7 @@
   &--slider::after {
     position: absolute;
     content: "";
-    background: url('../img/paw-orange.svg') no-repeat center top;
+    background: url('/img/paw-orange.svg') no-repeat center top;
     width: 36px;
     height: 36px;
     top: 7px;
@@ -125,7 +125,7 @@
   &--modal::after {
     position: absolute;
     content: "";
-    background: url('../img/paw-orange.svg') no-repeat center top;
+    background: url('/img/paw-orange.svg') no-repeat center top;
     width: 36px;
     height: 36px;
     top: 6px;
@@ -150,7 +150,7 @@
   &--room::after {
     position: absolute;
     content: "";
-    background: url('../img/paw-orange.svg') no-repeat center top;
+    background: url('/img/paw-orange.svg') no-repeat center top;
     width: 36px;
     height: 36px;
     top: 7px;
@@ -177,7 +177,7 @@
   &--filter::before {
     position: absolute;
     content: "";
-    background: url('../img/filter.svg') no-repeat center top;
+    background: url('/img/filter.svg') no-repeat center top;
     width: 12px;
     height: 15px;
     left: 11px;
