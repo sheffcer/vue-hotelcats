@@ -1,0 +1,24 @@
+.logo {
+
+  display: inline-block;
+  white-space: nowrap;
+  // max-width: 46px;
+  z-index: 110;
+
+  @media (min-width: $screen-md) {
+    display: block;
+    // margin-left: 40px;
+  }
+
+  &__img {
+    margin-top: 11px;
+  }
+
+  img {
+    display: block;
+  }
+
+  &--footer {
+    margin-top: 15px;
+  }
+}

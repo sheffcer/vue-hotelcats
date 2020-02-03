@@ -2,13 +2,29 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/rooms">Rooms</router-link>
     </div>
+    <PageHeader/>
     <router-view/>
+    <PageFooter/>
   </div>
 </template>
 
+<script>
+import PageHeader from '@/components/PageHeader.vue'
+import PageFooter from '@/components/PageFooter.vue'
+
+export default {
+  name: 'app',
+  components: {
+    PageHeader,
+    PageFooter
+  }
+}
+</script>
+
 <style lang="scss">
+@import "./assets/sass/style.scss";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,0 +1,99 @@
+.main-nav {
+  position: relative;
+  z-index: 10;
+  margin-top: 27px;
+  // margin-left: -5px;
+
+  @media (min-width: $screen-md) {
+    margin-top: 22px;
+    margin-left: 10px;
+    margin-right: 0;
+  }
+
+  // первый уровень
+  &__list {
+    // display: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (min-width: $screen-md) {
+      display: flex;
+      min-width: 430px;
+    }
+  }
+
+  &__list--footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 235px;
+  }
+
+  &__list--footer .main-nav__item {
+    min-width: 104px;
+  }
+
+  &__item {
+    position: relative;
+ }
+
+ &__item--footer {
+   min-width: 104px;
+ }
+
+  &__link {
+    display: block;
+    padding: 0.4em 1em;
+    text-decoration: none;
+    // background-color: #fff;
+    font-style: $font-family--rubik;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: $text-color;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background-color: $gray-lightest;
+    }
+
+    @media (min-width: $screen-md) {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+  }
+
+  &__link--footer {
+    padding: .4em .2em;
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  &--footer {
+    margin-top: 12px;
+  }
+
+
+  // переключатель
+
+  &__toggle {
+    position: absolute;
+    content: "";
+    background: url('../img/menu-open.svg') no-repeat;
+    padding: 0;
+    top: -30px;
+    left: 267px;
+    width: 24px;
+    height: 19px;
+    // background-size: 22px  14px;
+    border: none;
+    z-index: 1;
+  }
+}

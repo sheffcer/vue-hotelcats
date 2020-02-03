@@ -1,0 +1,136 @@
+.room {
+
+  &__inner {
+    @include container;
+    // outline: 1px dotted #000000;
+  }
+
+  &__grid {
+    // @include row;
+    @media (min-width: $screen-md) {
+      @include row;
+      justify-content: space-around;
+      // width: 870px;
+    }
+
+    @media (min-width: $screen-lg) {
+      // justify-content: space-around;
+      max-width: 870px;
+    }
+  }
+
+  &__wrap {
+    @media (min-width: $screen-lg) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    @include col(xs, 12, $grid-columns, 0);
+    // @include col(sm, 12, $grid-columns, 30px);
+    @include col(md, 6, $grid-columns, 0);
+    @include col(lg, 4, $grid-columns, 0);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 428px;
+
+    @media (min-width: $screen-md) {
+      min-height: 428px;;
+    }
+
+    @media (min-width: $screen-lg) {
+      // width: 270px;
+    }
+  }
+
+  &__item .btn {
+    margin-bottom: 25px;
+  }
+
+  &__filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 25px;
+  }
+
+  &__item-wrap {
+    // outline: 1px solid $author-color;
+    border: 1px solid $room-color;
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 6px;
+  }
+
+  &__img-wrap {
+    flex-shrink: 0;
+    display: block;
+    margin-bottom: 20px;
+  }
+  &__header {
+    font-family: $font-family--rubik;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 33px;
+  }
+
+  &__header-wrap {
+
+    @media (min-width: $screen-lg) {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+  }
+
+  &__content-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    // max-width: 216px;
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  &__content-list span {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &__content-list li {
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    font-family: $font-family--rubik;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  &__icons {
+    margin-left: 10px;
+    // max-width: 10px;
+    // display: flex;
+    // justify-content: flex-start;
+  }
+
+  &__icons img {
+    margin-right: 5px;
+  }
+}

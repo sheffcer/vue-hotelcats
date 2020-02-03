@@ -1,0 +1,89 @@
+$gray-lightest:               hsl(0, 0%, 90%);
+$border-color:                hsl(0, 0%, 60%) !default;
+$line-height:                 1.5 !default;
+$border-radius:               rem(3px) !default;
+
+.field-select {
+
+  $block-name:                &; // #{$block-name}__element
+
+  display: block;
+  // margin-bottom: 1rem;
+
+  &__name {
+    @include field-name;
+  }
+
+  &__input-wrap {}
+
+  &__select {
+    // position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    // width: 100%;
+    width: 154px;
+    line-height: $line-height;
+    padding: 5px 25px;
+    font-size: inherit;
+    font-family: inherit;
+    // border: 1px solid $border-color;
+    border: 0;
+    // border-radius: $border-radius;
+    appearance: none;
+    box-shadow: 1px 1px 6px #d3d3d3;
+    border-radius: 20px;
+    background-color: #fff;
+    background-image: url('../img/select-down.svg');
+    background-repeat: no-repeat;
+    // background-position: right 0.3em center;
+    background-position: 130px;
+    // background-size: 1.063em 0.688em;
+
+    &[multiple] {
+      background-image: none;
+      min-height: 6.8em;
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &:active,
+    &:focus {
+      // @include field-focus;
+      border-radius: 6px;
+      background-image: url('../img/select-up.svg');
+    }
+
+    &[disabled],
+    &[readonly] {
+      cursor: default;
+      background-color: $gray-lightest;
+    }
+  }
+
+  // &__select span {
+  //   position: relative;
+  // }
+
+  // &__select option:nth-child(odd) {
+  //   background-image: url("../img/arrow-up.svg");
+  //   background-repeat: no-repeat;
+  //   background-position: 10px;
+  //   background-size: 7px 12px;
+  // }
+
+  // &__select option:nth-child(even) span:before {
+  //   position: absolute;
+  //   content: "";
+  //   background: url("../img/arrow-down.svg") no-repeat;
+  //   width: 7px;
+  //   height: 12px;
+  //   top: 0;
+  //   left: 5px;
+  // }
+
+  &__help-text {
+    @include field-help-text;
+  }
+}
