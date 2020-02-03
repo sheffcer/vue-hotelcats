@@ -2,14 +2,14 @@
 <header class="page-header">
     <div class="page-header__inner">
     <div class="logo">
-        <a href="#">
+        <router-link to="/">
         <picture>
             <source media="(min-width: 1366px)" srcset="img/logo-desktop.svg">
             <source media="(min-width: 768px)" srcset="img/logo-tablet.svg">
             <img class="logo__img" src="img/logo.svg" alt="mobile-logo">
         </picture>
-        </a>
-    </div>
+        </router-link>
+        </div>
     <button class="nav-toggle" type="button">
         <span class="hamburger"></span>
     </button>

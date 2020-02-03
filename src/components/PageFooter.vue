@@ -10,16 +10,16 @@
         <nav class="main-nav  main-nav--footer">
         <ul class="main-nav__list  main-nav__list--footer">
             <li class="main-nav__item">
-            <a href="#" class="main-nav__link  main-nav__link--footer">Почему мы?</a>
+            <a href="#features" class="main-nav__link  main-nav__link--footer">Почему мы? </a>
             </li>
             <li class="main-nav__item">
-            <a href="#" class="main-nav__link main-nav__link--footer">Отзывы</a>
+                <router-link to="/rooms" class="main-nav__link  main-nav__link--footer">Номера</router-link> 
             </li>
             <li class="main-nav__item">
-            <a href="rooms.html" class="main-nav__link main-nav__link--footer">Номера</a>
+            <a href="#rev" class="main-nav__link  main-nav__link--footer">Отзывы </a>
             </li>
             <li class="main-nav__item">
-            <a href="#" class="main-nav__link main-nav__link--footer">Как нас найти</a>
+            <a href="#contacts"  class="main-nav__link  main-nav__link--footer">Контакты</a>
             </li>
         </ul>
         </nav>

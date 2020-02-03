@@ -5,13 +5,13 @@
             <a href="#features" class="main-nav__link">Почему мы? </a>
             </li>
             <li class="main-nav__item">
-            <a href="rooms.html" class="main-nav__link">Номера</a>
+                <router-link to="/rooms" class="main-nav__link">Номера</router-link> 
             </li>
             <li class="main-nav__item">
             <a href="#rev" class="main-nav__link">Отзывы </a>
             </li>
             <li class="main-nav__item">
-            <a href="#contacts" class="main-nav__link">Контакты</a>
+            <router-link to="#contacts"  class="main-nav__link">Контакты</router-link>
             </li>
         </ul>
         </nav>
@@ -48,6 +48,7 @@ margin-top: 27px;
     margin: 0;
     padding: 0;
     list-style: none;
+    text-align: left;
 
     @media (min-width: $screen-md) {
     display: flex;
