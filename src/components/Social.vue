@@ -21,9 +21,6 @@
 <script>
 export default {
 name: 'Social',
-props: {
-    msg: String
-}
 }
 </script>
 

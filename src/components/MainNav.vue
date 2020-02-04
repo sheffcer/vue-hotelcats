@@ -20,9 +20,6 @@
 <script>
 export default {
 name: 'MainNav',
-props: {
-    msg: String
-}
 }
 </script>
 

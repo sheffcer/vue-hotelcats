@@ -75,9 +75,6 @@
 <script>
 export default {
 name: "Features",
-props: {
-    msg: String
-}
 };
 </script>
 

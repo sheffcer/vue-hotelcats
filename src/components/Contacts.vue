@@ -61,9 +61,6 @@
 import Social from '@/components/Social.vue'
 export default {
 name: 'Contacts',
-props: {
-    msg: String
-},
 components: {
     Social
 }

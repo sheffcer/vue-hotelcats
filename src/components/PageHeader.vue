@@ -29,9 +29,6 @@ import Social from '@/components/Social.vue'
 import MainNav from '@/components/MainNav.vue'
 export default {
 name: 'PageHeader',
-props: {
-    msg: String
-},
 components: {
     Social,
     MainNav

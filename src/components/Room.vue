@@ -228,9 +228,6 @@
 <script>
 export default {
 name: 'Room',
-props: {
-    msg: String
-}
 }
 </script>
 

@@ -36,9 +36,6 @@
 // import PageHeader from '@/components/Social.vue'
 export default {
 name: 'PageFooter',
-props: {
-    msg: String
-},
 // components: {
 //     Social
 // }

@@ -16,9 +16,6 @@
 <script>
 export default {
 name: 'Banner',
-props: {
-    msg: String
-}
 }
 </script>
 

@@ -4,7 +4,7 @@
   Available for use under the MIT License
 */
 
-;( function ()
+( function ()
 {
   function closest(el, selector) {
     var matchesFn;
