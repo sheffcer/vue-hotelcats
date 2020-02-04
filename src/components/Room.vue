@@ -207,7 +207,7 @@
             <div class="room__content">
                 <h2 class="room__title">Супер-Люкс</h2>
                 <ul class="room__content-list">
-                <li>Размеры (ШхГхВ) - 180х160х180 см</li>
+                <li>Размеры (ШхГхВ)90х100х180 см</li>
                 <li>Площадь - 2,88 м2</li>
                 <li>Оснащение номера <span class="room__icons"><img src="img/icon_02.svg" alt=""><img
                         src="img/icon_03.svg" alt=""><img src="img/icon_04.svg" alt=""><img src="img/icon_05.svg"
@@ -228,6 +228,87 @@
 <script>
 export default {
 name: 'Room',
+data () {
+    return {
+    sliderValue: 3,
+    rooms: [
+        {
+            id: 4,
+            title: 'Эконом',
+            size: '90х100х180 см',
+            square:'0,63 м2',
+            price: '100₽',
+            img_mobile: 'img/room_04.png',
+            img_tablet: 'img/room_04-tablet.png',
+            img_desktop: 'img/room_04-desktop.png',
+            svgs: ['img/icon_01.svg'],
+            tooltips: ['Пустой номер']
+        },
+        {
+            id: 5,
+            title: 'Эконом плюс',
+            size: '90х100х180 см',
+            square: '0,9 м2',
+            price: '200₽',
+            img_mobile: 'img/room_05.png',
+            img_tablet: 'img/room_05-tablet.png',
+            img_desktop: 'img/room_05-desktop.png',
+            svgs: ['img/icon_02.svg', 'img/icon_03.svg'],
+            tooltips: ['Лежак', 'Когтеточка']
+        },
+        {
+            id: 6,
+            title: 'Комфорт',
+            size: '100х125х180 см',
+            square: '1,13 м2',
+            price: '250₽',
+            img_mobile: 'img/room_06.png',
+            img_tablet: 'img/room_06-tablet.png',
+            img_desktop: 'img/room_06-desktop.png',
+            svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg'],
+            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс']
+        },
+        {
+            id: 7,
+            title: 'Сьют',
+            size: '125х125х180 см',
+            square: '1,56 м2',
+            price: '350₽',
+            img_mobile: 'img/room_07.png',
+            img_tablet: 'img/room_07-tablet.png',
+            img_desktop: 'img/room_07-desktop.png',
+            svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg'],
+            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс']
+        },
+        {
+            id: 8,
+            title: 'Люкс',
+            size: '160х160х180 см',
+            square: '2,56 м2',
+            price: '500₽',
+            img_mobile: 'img/room_08.png',
+            img_tablet: 'img/room_08-tablet.png',
+            img_desktop: 'img/room_08-desktop.png',
+            svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg', 'img/icon_04.svg'],
+            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс', 'Домик']
+        },
+        {
+            id: 9,
+            title: 'Супер-Люкс',
+            size: '90х100х180 см',
+            square: '90х100х180 см',
+            price: '600₽',
+            img_mobile: 'img/room_09.png',
+            img_tablet: 'img/room_09-tablet.png',
+            img_desktop: 'img/room_09-desktop.png',
+            svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg', 'img/icon_05.svg'],
+            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс', 'Домик']
+        },
+
+
+    ],
+    }
+},
 }
 </script>
 
