@@ -2,57 +2,70 @@
 <div id="rev" class="review">
     <div class="review__inner">
     <h2 class="review__header">Отзывы</h2>
-    <div id="reviews" class="owl-carousel owl-theme review__grid">
-        <div class="review__item">
+
+        <carousel
+        class="owl-carousel owl-theme review__grid"
+        :autoplay="true" :nav="false"
+        :responsive="{0:{items:1,nav:false},320:{items:1,nav:false},768:{items:2,nav:true}, 1170:{items:3,nav:true}}"
+        >
+        <div class="review__item" v-for='review in reviews' v-bind:key='review.id'>
         <div class="review__item-wrap">
-            <p class="review__text">Первый раз пришлось оставить нашего котика в гостинице, очень переживали. Администратор Мария каждый день высылала нам фото нашего питомца, рассказывала, как он себя чувствует. И мы и котик остались очень довольны!</p>
+            <p class="review__text">{{review.text}}</p>
             <div class="review__author">
             <span>
-                Валерия Гришаева
+                {{review.author}}
             </span>
             <span>
-                15 ноября, 2019
+                {{review.date}}
             </span>
             </div>
         </div>
         </div>
-        <div class="review__item">
-        <div class="review__item-wrap">
-            <p class="review__text">Гостиницу для питомцев нам посоветовали друзья. Они всегда оставляют здесь своего кота, когда уезжают. В “Котейке” очень хорошо заботятся о питомцах, в гостинице очень чисто. Всем рекомендую! Будем обращаться еще.</p>
-            <div class="review__author">
-            <span>
-                Екатерина Минаева
-            </span>
-            <span>
-                10 октября, 2019
-            </span>
-            </div>
-        </div>
-        </div>
-        <div class="review__item">
-        <div class="review__item-wrap">
-            <p class="review__text">Мой кот — настоящая привереда, угодить ему сложно. У меня были особые требования куходу за ним, и “Котейка” отлично справились. Я часто наблюдал по видео за питомцем со своего телефона, это очень удобно. </p>
-            <div class="review__author">
-            <span>
-                Павел Нечаев
-            </span>
-            <span>
-                19 декабря, 2019
-            </span>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
+
+
+        </carousel>
+</div>
 </div>
 </template>
 
 <script>
+import carousel from 'vue-owl-carousel'
 export default {
-name: 'Review',
-props: {
-    msg: String
-}
+name: 'Reviews',
+components: {
+    carousel
+},
+methods: {
+    changeIndex(index) {
+    this.sliderValue = index;
+    }
+},
+
+data () {
+    return {
+    sliderValue: 3,
+    reviews: [
+        {
+            id: 1,
+            author: 'Валерия Гришаева',
+            text: 'Первый раз пришлось оставить нашего котика в гостинице, очень переживали. Администратор Мария каждый день высылала нам фото нашего питомца, рассказывала, как он себя чувствует. И мы и котик остались очень довольны!',
+            date: '15 ноября, 2019'
+        },
+        {
+            id: 2,
+            author: 'Екатерина Минаева',
+            text: 'Мой кот — настоящая привереда, угодить ему сложно. У меня были особые требования куходу за ним, и “Котейка” отлично справились. Я часто наблюдал по видео за питомцем со своего телефона, это очень удобно.',
+            date: '10 октября, 2019'
+        },
+        {
+            id: 3,
+            author: 'Павел Нечаев',
+            text: 'Мой кот — настоящая привереда, угодить ему сложно. У меня были особые требования куходу за ним, и “Котейка” отлично справились. Я часто наблюдал по видео за питомцем со своего телефона, это очень удобно.',
+            date: '19 декабря, 2019'
+        }
+    ],
+    }
+},
 }
 </script>
 
