@@ -3,9 +3,11 @@
     <div class="review__inner">
     <h2 class="review__header">Отзывы</h2>
 
-        <carousel loading: true
+        <carousel
+        id="reviews"
         class="owl-carousel owl-theme review__grid"
         :autoplay="true" :nav="false"
+        :onInitialized="true"
         :responsive="{0:{items:1,nav:false},320:{items:1,nav:false},768:{items:2,nav:true}, 1170:{items:3,nav:true}}"
         >
         <div class="review__item" v-for='review in reviews' v-bind:key='review.id'>

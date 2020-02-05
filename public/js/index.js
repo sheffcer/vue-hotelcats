@@ -54,42 +54,42 @@ $("#rooms").owlCarousel({
   }
 });
 
-$("#reviews").owlCarousel({
-  // items: 5,
-  merge: true,
-  loop: true,
-  margin: 10,
-  lazyLoad: true,
-  autoplay: false,
-  responsiveClass: true,
-  responsive: {
-    0: {
-      items: 1,
-      nav: false,
-      dots: true,
-      loop: true
-    },
-    320: {
-      items: 1,
-      nav: false,
-      dots: true
-    },
-    // 480: {
-    //     items: 2,
-    //     nav: false,
-    //     dots: false
-    // },
-    768: {
-      items: 2,
-      nav: false,
-      dots: true
-    },
-    1366: {
-      items: 3,
-      nav: false,
-      loop: true
-    }
-  }
-});
+// $("#reviews").owlCarousel({
+//   // items: 5,
+//   merge: true,
+//   loop: true,
+//   margin: 10,
+//   lazyLoad: true,
+//   autoplay: false,
+//   responsiveClass: true,
+//   responsive: {
+//     0: {
+//       items: 1,
+//       nav: false,
+//       dots: true,
+//       loop: true
+//     },
+//     320: {
+//       items: 1,
+//       nav: false,
+//       dots: true
+//     },
+//     // 480: {
+//     //     items: 2,
+//     //     nav: false,
+//     //     dots: false
+//     // },
+//     768: {
+//       items: 2,
+//       nav: false,
+//       dots: true
+//     },
+//     1366: {
+//       items: 3,
+//       nav: false,
+//       loop: true
+//     }
+//   }
+// });
 
 });
