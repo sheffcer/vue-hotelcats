@@ -1,13 +1,14 @@
 <template>
 <div id="swiper">
     <div class="slider__inner">
+        <h2 class="slider__header">Отзывы</h2>
 <swiper :options="swiperOption" ref="swiperOption">
     <!-- slides -->
-    <swiper-slide v-for='review in reviews' v-bind:key='review.id' class="__item">
+    <swiper-slide v-for='review in reviews' v-bind:key='review.id' class="slider__item">
         <!-- <div  > -->
-        <div class="review__item-wrap">
-            <p class="review__text">{{review.text}}</p>
-            <div class="review__author">
+        <div class="slider__item-wrap">
+            <p class="slider__text">{{review.text}}</p>
+            <div class="slider__author">
             <span>
                 {{review.author}}
             </span>
@@ -19,11 +20,12 @@
         </div>
     </swiper-slide>
        <!-- Optional controls -->
-    <div class="swiper-pagination"  slot="pagination"></div>
+    <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
     <!-- <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div> -->
     <!-- <div class="swiper-scrollbar"   slot="scrollbar"></div> -->
 </swiper>
+<div class="swiper-pagination"  slot="pagination"></div>
 </div>
 </div>
 </template>
@@ -43,8 +45,11 @@ data () {
     sliderValue: 3,
     loading: '',
     swiperOption: {
+    loop: true,
+    autoplay: true,
     pagination: {
-            el: '.swiper-pagination'
+            el: '.swiper-pagination',
+            clickable: true,
         }
         },
     swiperSlides: [1, 2, 3, 4, 5],
@@ -78,7 +83,7 @@ computed: {
 },
 mounted () {
     // console.log('this is current swiper instance object', this.swiper)
-    this.swiper.slideTo(3, 1000, false)
+    this.swiper.slideTo(1, 2000, true)
 }
 }
 
@@ -91,10 +96,15 @@ mounted () {
 @import "@/assets/sass/grid-mixins.scss";
 @import "@/assets/sass/variables.scss";
 // @import 'swiper/dist/css/swiper.css';
+
+.swiper-pagination {
+    position: relative;
+}
+
 .swiper-pagination-bullet {
-    margin: 0 8px!important;
-    width: 10px!important;
-    height: 10px !important;
+    margin: 0 6px!important;
+    width: 12px!important;
+    height: 12px !important;
 }
 
 .swiper-pagination-bullet-active {
@@ -102,7 +112,7 @@ mounted () {
 }
 
 .swiper-pagination-bullets {
-    margin-top: 250px!important;
+    margin-top: 15px!important;
 }
 
 .slider {

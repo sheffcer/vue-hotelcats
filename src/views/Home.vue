@@ -5,7 +5,7 @@
     <Intro/>
     <Features/>
     <RoomSlider/>
-    <Reviews/>
+    <!-- <Reviews/> -->
     <Slider/>
     <Contacts/>
     <!-- <PageFooter/> -->
@@ -18,7 +18,7 @@
 import Intro from '@/components/Intro.vue'
 import Features from '@/components/Features.vue'
 import RoomSlider from '@/components/RoomSlider.vue'
-import Reviews from '@/components/Reviews.vue'
+// import Reviews from '@/components/Reviews.vue'
 import Contacts from '@/components/Contacts.vue'
 import Slider from '@/components/Slider.vue'
 
@@ -28,7 +28,7 @@ export default {
     Intro,
     Features,
     RoomSlider,
-    Reviews,
+    // Reviews,
     Contacts,
     Slider
   }
