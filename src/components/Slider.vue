@@ -1,16 +1,10 @@
 <template>
-<div id="rev" class="review">
-    <div class="review__inner">
-    <h2 class="review__header">Отзывы</h2>
-
-        <carousel
-        id="reviews"
-        class="owl-carousel owl-theme review__grid"
-        :autoplay="true" :nav="false"
-        :onInitialized='true'
-        :responsive="{0:{items:1,nav:false},320:{items:1,nav:false},768:{items:2,nav:true}, 1170:{items:3,nav:true}}"
-        >
-        <div class="review__item" v-for='review in reviews' v-bind:key='review.id'>
+<div id="swiper">
+    <div class="slider__inner">
+<swiper :options="swiperOption" ref="swiperOption">
+    <!-- slides -->
+    <swiper-slide v-for='review in reviews' v-bind:key='review.id' class="__item">
+        <!-- <div  > -->
         <div class="review__item-wrap">
             <p class="review__text">{{review.text}}</p>
             <div class="review__author">
@@ -21,28 +15,39 @@
                 {{review.date}}
             </span>
             </div>
+        <!-- </div> -->
         </div>
-        </div>
-
-
-        </carousel>
+    </swiper-slide>
+       <!-- Optional controls -->
+    <div class="swiper-pagination"  slot="pagination"></div>
+    <!-- <div class="swiper-button-prev" slot="button-prev"></div>
+    <div class="swiper-button-next" slot="button-next"></div> -->
+    <!-- <div class="swiper-scrollbar"   slot="scrollbar"></div> -->
+</swiper>
 </div>
 </div>
 </template>
 
 <script>
-// import $ from 'jquery';
-import carousel from 'vue-owl-carousel'
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
-name: 'Reviews',
+name: 'Slider',
 // props: [ 'review' ],
 components: {
-    carousel
+    swiper,
+    swiperSlide
 },
 data () {
     return {
     sliderValue: 3,
     loading: '',
+    swiperOption: {
+    pagination: {
+            el: '.swiper-pagination'
+        }
+        },
+    swiperSlides: [1, 2, 3, 4, 5],
     reviews: [
         {
             id: 1,
@@ -62,16 +67,22 @@ data () {
             text: 'Мой кот — настоящая привереда, угодить ему сложно. У меня были особые требования куходу за ним, и “Котейка” отлично справились. Я часто наблюдал по видео за питомцем со своего телефона, это очень удобно.',
             date: '19 декабря, 2019'
         }
-    ],
-    mounted () {
-        if(this.reviews !== null) {
-        // this.loaded = true;
-        // console.log(this.reviews)
-        }
+    ]
     }
+
+},
+computed: {
+    swiper() {
+        return this.$refs.swiperOption.swiper
     }
+},
+mounted () {
+    // console.log('this is current swiper instance object', this.swiper)
+    this.swiper.slideTo(3, 1000, false)
 }
 }
+
+
 
 </script>
 
@@ -79,8 +90,22 @@ data () {
 <style lang="scss">
 @import "@/assets/sass/grid-mixins.scss";
 @import "@/assets/sass/variables.scss";
+// @import 'swiper/dist/css/swiper.css';
+.swiper-pagination-bullet {
+    margin: 0 8px!important;
+    width: 10px!important;
+    height: 10px !important;
+}
 
-.review {
+.swiper-pagination-bullet-active {
+    background-color: $bullet-color;
+}
+
+.swiper-pagination-bullets {
+    margin-top: 250px!important;
+}
+
+.slider {
 @media (min-width: $screen-md) {
     margin-top: 100px;
 }
@@ -101,6 +126,7 @@ background-position-y: -30px;
 &__inner {
     @include container;
     // outline: 1px dotted #000000;
+    padding-bottom: 30px;
 }
 
 &__header {

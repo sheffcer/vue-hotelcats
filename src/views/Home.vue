@@ -6,6 +6,7 @@
     <Features/>
     <RoomSlider/>
     <Reviews/>
+    <Slider/>
     <Contacts/>
     <!-- <PageFooter/> -->
   </div>
@@ -19,6 +20,7 @@ import Features from '@/components/Features.vue'
 import RoomSlider from '@/components/RoomSlider.vue'
 import Reviews from '@/components/Reviews.vue'
 import Contacts from '@/components/Contacts.vue'
+import Slider from '@/components/Slider.vue'
 
 export default {
   name: 'home',
@@ -28,6 +30,7 @@ export default {
     RoomSlider,
     Reviews,
     Contacts,
+    Slider
   }
 }
 </script>
