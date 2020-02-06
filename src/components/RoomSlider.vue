@@ -19,6 +19,7 @@
             </div>
             </div>
         </swiper-slide>
+        <div class="swiper-pagination"  slot="pagination"></div>
         </swiper>
     <!-- <div id="rooms" class="owl-carousel owl-theme room-slider__grid">
         <div class="room-slider__item">
@@ -105,7 +106,7 @@ data () {
     // grabCursor: true,
     // centeredSlides: true,
     loop: true,
-    autoplay: true,
+    // autoplay: true,
     slidesPerView: 1,
     pagination: {
             el: '.swiper-pagination',
@@ -237,11 +238,20 @@ background-position-y: 60px;
     box-shadow: 1px 1px 6px #d3d3d3;
     border-radius: 6px;
     padding-bottom: 15px;
-    background-color: $body-bg;
+    background-color: transparent!important;
 
     @media (min-width: $screen-md) {
+    margin-left: -2px;
     box-shadow: none;
+    position: relative;
+    background-color: none!important;
       // max-height: 350px;
+    }
+}
+
+&__item-img {
+    @media (min-width: $screen-md) {
+        margin-left: -200px;
     }
 }
 
@@ -266,9 +276,9 @@ background-position-y: 60px;
     padding-left: 20px;
 
     @media (min-width: $screen-md) {
-    position: relative;
-    left: 285px;
-    top: -290px;
+    position: absolute;
+    left: 290px;
+    top: 40px;
     width: 345px;
     box-shadow: 1px 1px 6px #d3d3d3;
     border-radius: 6px;
