@@ -42,36 +42,47 @@ components: {
 },
 data () {
     return {
-    sliderValue: 3,
+    // sliderValue: 3,
     loading: '',
     swiperOption: {
+    // effect: 'coverflow',
+    // grabCursor: true,
+    // centeredSlides: true,
     loop: true,
     autoplay: true,
-    slidesPerView: 5,
+    slidesPerView: 1,
     pagination: {
             el: '.swiper-pagination',
             clickable: true,
         },
     breakpoints: {
-            1170: {
+            1800: {
             slidesPerView: 3,
-            // spaceBetween: 40
+            spaceBetween: 40
+            },
+            1170: {
+            slidesPerView: 2,
+            spaceBetween: 40
+            },
+            1024: {
+            slidesPerView: 2,
+            spaceBetween: 40
             },
             768: {
-            slidesPerView: 2,
-            // spaceBetween: 10
+            slidesPerView: 1,
+            spaceBetween: 10
             },
             320: {
             slidesPerView: 1,
-            // spaceBetween: 10
+            spaceBetween: 10
             },
-            0: {
+            480: {
             slidesPerView: 1,
-            // spaceBetween: 10
-            }
+            spaceBetween: 10
+            },
         }
         },
-    swiperSlides: [1, 2, 3, 4, 5],
+    // swiperSlides: [1, 2, 3, 4, 5],
     reviews: [
         {
             id: 1,
@@ -174,15 +185,15 @@ background-position-y: -30px;
 }
 
 &__grid {
-    @include row;
-    margin: 0;
+    // @include row;
+    // margin: 0;
 }
 
 &__item {
-    @include col(xs, 12, $grid-columns, 0);
+    // @include col(xs, 12, $grid-columns, 0);
     // @include col(sm, 12, $grid-columns, 0);
-    @include col(md, 6, $grid-columns, 0);
-    @include col(lg, 4, $grid-columns, 0);
+    // @include col(md, 6, $grid-columns, 0);
+    // @include col(lg, 4, $grid-columns, 0);
 
     @media (min-width: $screen-md) {
       // min-width: 442px!important;
@@ -190,6 +201,18 @@ background-position-y: -30px;
     padding-bottom: 15px;
     }
 }
+
+// &__item {
+//     width: 290px;
+
+//     @media (min-width: $screen-sm) {
+//         width: 440px;
+//     }
+
+//     @media (min-width: $screen-md) {
+//         width: 339px;
+//     }
+// }
 
 &__item-wrap {
     position: relative;
