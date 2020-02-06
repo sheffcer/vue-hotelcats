@@ -112,6 +112,32 @@ data () {
             el: '.swiper-pagination',
             clickable: true,
             },
+    breakpoints: {
+            1800: {
+            slidesPerView: 1,
+            spaceBetween: 40
+            },
+            1170: {
+            slidesPerView: 1,
+            spaceBetween: 40
+            },
+            1024: {
+            slidesPerView: 1,
+            spaceBetween: 40
+            },
+            768: {
+            slidesPerView: 1,
+            spaceBetween: 10
+            },
+            320: {
+            slidesPerView: 1,
+            spaceBetween: 10
+            },
+            480: {
+            slidesPerView: 1,
+            spaceBetween: 10
+            },
+        }
         },
     rooms: [
         {
@@ -128,7 +154,7 @@ data () {
             lists: ['Площадь - 1,13 м2', 'азмеры (ШхГхВ) 100х125х180 см', 'Цена за сутки: 250₽'],
             img_link_mobile: 'img/room_02.png',
             img_link_tablet: 'img/room_02-tablet.png',
-            img_link_desktop: 'iimg/room_02-desktop.png',
+            img_link_desktop: 'img/room_02-desktop.png',
         },
         {
             id: 3,
@@ -211,24 +237,24 @@ background-position-y: 60px;
 }
 
 &__item {
-    @include col(xs, 12, $grid-columns, 0);
+    // @include col(xs, 12, $grid-columns, 0);
     // @include col(sm, 12, $grid-columns, 0); // SM (480 по умолчанию) — 6 из 12, промежутки 10px
-    @include col(md, 12, $grid-columns, 0);
-    @include col(lg, 12, $grid-columns, 0);
+    // @include col(md, 12, $grid-columns, 0);
+    // @include col(lg, 12, $grid-columns, 0);
     display: flex;
     flex-direction: column;
     padding-bottom: 25px;
-    width: 287px;
+    // width: 287px;
 
     @media (min-width: $screen-md) {
-    width: 443px;
+    // width: 443px;
     max-height: 335px;
     }
 
     @media (min-width: $screen-lg) {
-    width: 600px;
+    // width: 600px;
     max-height: 415px;
-    margin-left: 100px;
+    // margin-left: 100px;
     }
     // background-color: $border-color;
 }
@@ -251,6 +277,10 @@ background-position-y: 60px;
 
 &__item-img {
     @media (min-width: $screen-md) {
+        margin-left: -200px;
+    }
+
+    @media (min-width: $screen-lg) {
         margin-left: -200px;
     }
 }
@@ -287,9 +317,9 @@ background-position-y: 60px;
     }
 
     @media (min-width: $screen-lg) {
-    left: 500px;
+    left: 600px;
     box-sizing: border-box;
-    top: -345px;
+    top: 60px;
     width: 500px;
     padding-top: 40px;
     padding-left: 0;
