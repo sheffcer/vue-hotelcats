@@ -47,9 +47,28 @@ data () {
     swiperOption: {
     loop: true,
     autoplay: true,
+    slidesPerView: 5,
     pagination: {
             el: '.swiper-pagination',
             clickable: true,
+        },
+    breakpoints: {
+            1170: {
+            slidesPerView: 3,
+            // spaceBetween: 40
+            },
+            768: {
+            slidesPerView: 2,
+            // spaceBetween: 10
+            },
+            320: {
+            slidesPerView: 1,
+            // spaceBetween: 10
+            },
+            0: {
+            slidesPerView: 1,
+            // spaceBetween: 10
+            }
         }
         },
     swiperSlides: [1, 2, 3, 4, 5],
@@ -160,10 +179,10 @@ background-position-y: -30px;
 }
 
 &__item {
-    @include col(xs, 12, $grid-columns, 0); // малые ширины — 12 из 12, промежутки по умолчанию
-    @include col(sm, 12, $grid-columns, 0); // SM (480 по умолчанию) — 6 из 12, промежутки 10px
-    @include col(md, 12, $grid-columns, 0); // SM (480 по умолчанию) — 6 из 12, промежутки 10px
-    @include col(lg, 12, $grid-columns, 0);
+    @include col(xs, 12, $grid-columns, 0);
+    // @include col(sm, 12, $grid-columns, 0);
+    @include col(md, 6, $grid-columns, 0);
+    @include col(lg, 4, $grid-columns, 0);
 
     @media (min-width: $screen-md) {
       // min-width: 442px!important;
