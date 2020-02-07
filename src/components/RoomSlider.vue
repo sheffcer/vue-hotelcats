@@ -12,74 +12,15 @@
             </picture>
             <div class="room-slider__content">
             <h2 class="room-slider__title">{{room.title}}</h2>
-               <ul class="list-bullet">
+                <ul class="list-bullet">
                 <li v-for="(list, index) in room.lists" :key="index" >{{list}}</li>
                 </ul>
-            <a href="" class="btn  btn--slider">Забронировать</a>
+            <a href="" class="btn  btn--slider" v-on:click.prevent="reserveRoom">Забронировать</a>
             </div>
             </div>
         </swiper-slide>
         <div class="swiper-pagination"  slot="pagination"></div>
         </swiper>
-    <!-- <div id="rooms" class="owl-carousel owl-theme room-slider__grid">
-        <div class="room-slider__item">
-        <div class="room-slider__item-wrap">
-            <picture class="room-slider__item-img">
-            <source media="(min-width: 1366px)" srcset="img/room_01-desktop.png">
-            <source media="(min-width: 768px)" srcset="img/room_01-tablet.png">
-            <img src="img/room_01.png" alt="">
-            </picture>
-            <div class="room-slider__content">
-            <h2 class="room-slider__title">Эконом плюс</h2>
-            <ul class="list-bullet">
-                <li>Площадь - 0,90 м2</li>
-                <li>Размеры (ШхГхВ)
-                90х100х180 см</li>
-                <li>Цена за сутки: 200₽</li>
-            </ul>
-            <a href="#" class="btn  btn--slider">Забронировать</a>
-            </div>
-        </div>
-        </div>
-        <div class="room-slider__item">
-        <div class="room-slider__item-wrap">
-            <picture class="room-slider__item-img">
-            <source media="(min-width: 1366px)" srcset="img/room_02-desktop.png">
-            <source media="(min-width: 768px)" srcset="img/room_02-tablet.png">
-            <img src="img/room_02.png" alt="">
-            </picture>
-            <div class="room-slider__content">
-            <h2 class="room-slider__title">Комфорт</h2>
-            <ul class="list-bullet">
-                <li>Площадь - 1,13 м2</li>
-                <li>Размеры (ШхГхВ)
-                100х125х180 см</li>
-                <li>Цена за сутки: 250₽</li>
-            </ul>
-            <a href="#" class="btn  btn--slider">Забронировать</a>
-            </div>
-        </div>
-        </div>
-        <div class="room-slider__item">
-        <div class="room-slider__item-wrap">
-            <picture class="room-slider__item-img">
-            <source media="(min-width: 1366px)" srcset="img/room_03-desktop.png">
-            <source media="(min-width: 768px)" srcset="img/room_03-tablet.png">
-            <img src="img/room_03.png" alt="">
-            </picture>
-            <div class="room-slider__content">
-            <h2 class="room-slider__title">Сьют</h2>
-            <ul class="list-bullet">
-                <li>Площадь - 1,56 м2</li>
-                <li>Размеры (ШхГхВ)
-                125х125х180 см</li>
-                <li>Цена за сутки: 350₽</li>
-            </ul>
-            <a href="#" class="btn  btn--slider">Забронировать</a>
-            </div>
-        </div>
-        </div>
-    </div> -->
     </div>
     </div>
 
@@ -167,6 +108,20 @@ data () {
     ],
     }
 },
+methods: {
+    reserveRoom: () => {
+        let modal = document.querySelector('.modal-cart--form')
+        let modalShadow = document.querySelector('.modal-cart--form .modal-cart__shadow')
+        let modalClose = document.querySelector('.modal-cart--form .modal-cart__close')
+
+         modalShadow.style.cssText = 'display:block'
+         modal.style.cssText = 'display:block'
+            modalClose.addEventListener('click', () => {
+                modalShadow.style.cssText = 'display:none';
+                modal.style.cssText = 'display:none';
+            })
+        }
+    },
 computed: {
     swiper() {
         return this.$refs.swiperOption.swiper

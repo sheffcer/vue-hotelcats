@@ -6,7 +6,7 @@
         <p class="banner__description">Каждый 7-й день</p>
         <h2 class="banner__header">бесплатно!</h2>
         <p class="banner__text">Акция действует при размещении в номерах “Люкс” и “Супер-Люкс”</p>
-        <a href="#" class="btn  btn--intro">Забронировать</a>
+        <a href="#" class="btn  btn--intro" v-on:click.prevent="reserveRoom">Забронировать</a>
         </div>
     </div>
     </div>
@@ -16,6 +16,20 @@
 <script>
 export default {
 name: 'Banner',
+methods: {
+    reserveRoom: () => {
+        let modal = document.querySelector('.modal-cart--form')
+        let modalShadow = document.querySelector('.modal-cart--form .modal-cart__shadow')
+        let modalClose = document.querySelector('.modal-cart--form .modal-cart__close')
+
+         modalShadow.style.cssText = 'display:block'
+         modal.style.cssText = 'display:block'
+            modalClose.addEventListener('click', () => {
+                modalShadow.style.cssText = 'display:none';
+                modal.style.cssText = 'display:none';
+            })
+        }
+    }
 }
 </script>
 

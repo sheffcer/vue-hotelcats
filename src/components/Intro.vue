@@ -4,7 +4,7 @@
       <p class="intro__text">Санкт-Петербург</p>
       <h1 class="intro__title">Котейка</h1>
       <p class="intro__description">Уютная гостиница для котов и кошек</p>
-      <a href="#" class="btn  btn--intro">Забронировать</a>
+      <a href="#" class="btn  btn--intro" v-on:click.prevent="reserveRoom">Забронировать</a>
     </div>
   </div>
 </template>
@@ -12,6 +12,21 @@
 <script>
 export default {
   name: 'Intro',
+  methods: {
+    reserveRoom: () => {
+        let modal = document.querySelector('.modal-cart--form')
+        let modalShadow = document.querySelector('.modal-cart--form .modal-cart__shadow')
+        let modalClose = document.querySelector('.modal-cart--form .modal-cart__close')
+
+         modalShadow.style.cssText = 'display:block'
+         modal.style.cssText = 'display:block'
+            modalClose.addEventListener('click', () => {
+                modalShadow.style.cssText = 'display:none';
+                modal.style.cssText = 'display:none';
+            })
+        }
+    }
+
 }
 </script>
 
