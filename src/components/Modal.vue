@@ -49,7 +49,7 @@
             </div>
           </div>
           <button class="modal-cart__close" type="button"></button>
-          <button type="submit" class="btn  btn--room" value="Ок">Отправить заявку</button>
+          <button v-on:submit.prevent type="submit" class="btn  btn--room" value="Ок">Отправить заявку</button>
         </div>
       </form>
     </div>

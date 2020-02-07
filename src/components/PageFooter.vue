@@ -29,16 +29,16 @@
         <p>Политика конфиденциальности</p>
     </div>
     </div>
-<Modal/>
+<!-- <Modal/> -->
 </div>
 </template>
 
 <script>
-import Modal from '@/components/Modal.vue'
+// import Modal from '@/components/Modal.vue'
 export default {
 name: 'PageFooter',
 components: {
-    Modal
+    // Modal
 }
 }
 </script>

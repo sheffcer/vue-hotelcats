@@ -109,7 +109,7 @@
                 <li>Цена за сутки: <span>{{room.price}}</span></li>
                 </ul>
             </div>
-            <a href="#" class="btn  btn--room">Забронировать</a>
+            <a href="" class="btn  btn--room" v-on:click.stop.prevent>Забронировать</a>
             </div>
         </div>
         </div>

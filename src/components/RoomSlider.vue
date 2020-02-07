@@ -15,7 +15,7 @@
                <ul class="list-bullet">
                 <li v-for="(list, index) in room.lists" :key="index" >{{list}}</li>
                 </ul>
-            <a href="#" class="btn  btn--slider">Забронировать</a>
+            <a href="" class="btn  btn--slider">Забронировать</a>
             </div>
             </div>
         </swiper-slide>

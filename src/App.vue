@@ -7,18 +7,21 @@
     <PageHeader/>
     <router-view/>
     <PageFooter/>
+    <Modal/>
   </div>
 </template>
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import PageFooter from '@/components/PageFooter.vue'
+import Modal from '@/components/Modal.vue'
 
 export default {
   name: 'app',
   components: {
     PageHeader,
-    PageFooter
+    PageFooter,
+    Modal
   }
 }
 </script>
