@@ -50,6 +50,7 @@
           </div>
           <button class="modal-cart__close" type="button"></button>
           <button type="submit" class="btn  btn--room" value="Ок">Отправить заявку</button>
+        </div>
       </form>
     </div>
     </div>
@@ -89,7 +90,7 @@ name: 'Modal',
     position: absolute;
     left: 260px;
     top: 10px;
-    background: url("../img/menu-close.svg") no-repeat;
+    background: url("/img/menu-close.svg") no-repeat;
   }
 
   &__shadow {

@@ -29,16 +29,17 @@
         <p>Политика конфиденциальности</p>
     </div>
     </div>
+<Modal/>
 </div>
 </template>
 
 <script>
-// import PageHeader from '@/components/Social.vue'
+import Modal from '@/components/Modal.vue'
 export default {
 name: 'PageFooter',
-// components: {
-//     Social
-// }
+components: {
+    Modal
+}
 }
 </script>
 
