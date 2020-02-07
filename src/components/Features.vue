@@ -5,7 +5,7 @@
     <div class="features__row">
         <div class="features__item">
     <div class="features__item-wrap">
-            <img src="img/features_01.svg" alt class="features__img" />
+            <img src="img/features_01.svg" alt="Комфортная температура" class="features__img" />
             <h2 class="features__title">Комфортная температура</h2>
             <p class="features__text">
             Во всех номерах
@@ -19,7 +19,7 @@
         </div>
         <div class="features__item">
         <div class="features__item-wrap">
-            <img src="img/features_02.svg" alt class="features__img" />
+            <img src="img/features_02.svg" alt="Видеонаблюдение" class="features__img" />
             <h2 class="features__title">Видеонаблюдение</h2>
             <p class="features__text">
             Мы предоставляем доступ в нашу систему. Вы сможете следить за
@@ -29,14 +29,14 @@
         </div>
         <div class="features__item">
         <div class="features__item-wrap">
-            <img src="img/features_03.svg" alt class="features__img" />
+            <img src="img/features_03.svg" alt="Услуги Зоотакси" class="features__img" />
             <h2 class="features__title">Услуги Зоотакси</h2>
             <p class="features__text">Мы приедем за вашим питомцем в любой район Санкт-Петербурга.</p>
         </div>
         </div>
         <div class="features__item">
         <div class="features__item-wrap">
-            <img src="img/features_04.svg" alt class="features__img" />
+            <img src="img/features_04.svg" alt="Сбалансированное питание" class="features__img" />
             <h2 class="features__title">Сбалансированное питание</h2>
             <p class="features__text">
             Вы можете привезти свой корм
@@ -47,7 +47,7 @@
         </div>
         <div class="features__item">
         <div class="features__item-wrap">
-            <img src="img/features_05.svg" alt class="features__img" />
+            <img src="img/features_05.svg" alt="Ежедневные прогулки" class="features__img" />
             <h2 class="features__title">Ежедневные прогулки</h2>
             <p class="features__text">
             По вашему желанию мы
@@ -59,7 +59,7 @@
         </div>
         <div class="features__item">
         <div class="features__item-wrap">
-            <img src="img/features_06.svg" alt class="features__img" />
+            <img src="img/features_06.svg" alt="Лучшие ветеринары" class="features__img" />
             <h2 class="features__title">Лучшие ветеринары</h2>
             <p class="features__text">
             В гостинице 24 часа дежурит ветеринарный врач, который окажет
