@@ -2,7 +2,6 @@
 <div id="rev" class="review">
     <div class="review__inner">
     <h2 class="review__header">Отзывы</h2>
-
         <carousel
         id="reviews"
         class="owl-carousel owl-theme review__grid"
@@ -23,7 +22,6 @@
             </div>
         </div>
         </div>
-
 
         </carousel>
 </div>

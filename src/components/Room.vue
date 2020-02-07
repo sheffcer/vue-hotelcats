@@ -182,7 +182,7 @@ data () {
             img_mobile: 'img/room_08.png',
             img_tablet: 'img/room_08-tablet.png',
             img_desktop: 'img/room_08-desktop.png',
-            svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg', 'img/icon_04.svg'],
+            svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg', 'img/icon_05.svg'],
             tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс', 'Домик']
         },
         {
@@ -205,7 +205,6 @@ data () {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 @import "@/assets/sass/grid-mixins.scss";
 @import "@/assets/sass/variables.scss";

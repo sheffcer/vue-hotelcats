@@ -10,7 +10,7 @@
         </picture>
         </router-link>
         </div>
-    <button class="nav-toggle" type="button">
+    <button class="nav-toggle" type="button" v-on:click="menuToggle">
         <span class="hamburger"></span>
     </button>
     <div class="navbar">
@@ -32,7 +32,33 @@ name: 'PageHeader',
 components: {
     Social,
     MainNav
-}
+},
+methods: {
+    menuToggle: () => {
+        // let navToggle = document.querySelector(".nav-toggle");
+        let navLinks = document.querySelectorAll(".main-nav__link");
+         document.body.classList.toggle("nav-open");
+
+        // navToggle.addEventListener("click", () => {
+        //     document.body.classList.toggle("nav-open");
+        //     });
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+            document.body.classList.remove("nav-open");
+            });
+        });
+
+
+        },
+    closeMenu: () => {
+        let navLinks = document.querySelectorAll(".main-nav__link");
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+            document.body.classList.remove("nav-open");
+            });
+        });
+    }
+    }
 }
 </script>
 
