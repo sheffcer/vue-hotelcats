@@ -6,9 +6,9 @@
         <swiper-slide class="room-slider__item"  v-for='room in rooms' v-bind:key='room.id'>
             <div class="room-slider__item-wrap">
             <picture class="room-slider__item-img">
-            <source media="(min-width: 1366px)" v-bind:srcset="room.img_link_desktop">
-            <source media="(min-width: 768px)" v-bind:srcset="room.img_link_tablet">
-            <img v-bind:src="room.img_link_mobile" alt="">
+            <source media="(min-width: 1366px)" v-bind:srcset="room.img_desktop">
+            <source media="(min-width: 768px)" v-bind:srcset="room.img_tablet">
+            <img v-bind:src="room.img_mobile" alt="">
             </picture>
             <div class="room-slider__content">
             <h2 class="room-slider__title">{{room.title}}</h2>
@@ -144,25 +144,25 @@ data () {
             id: 1,
             title: 'Эконом',
             lists: ['Площадь - 0,90 м2', 'Размеры (ШхГхВ) 90х100х180 см', 'Цена за сутки: 200₽'],
-            img_link_mobile: 'img/room_01.png',
-            img_link_tablet: 'img/room_01-tablet.png',
-            img_link_desktop: 'img/room_01-desktop.png',
+            img_mobile: 'img/room_01.png',
+            img_tablet: 'img/room_01-tablet.png',
+            img_desktop: 'img/room_01-desktop.png',
         },
         {
             id: 2,
             title: 'Эконом плюс',
             lists: ['Площадь - 1,13 м2', 'азмеры (ШхГхВ) 100х125х180 см', 'Цена за сутки: 250₽'],
-            img_link_mobile: 'img/room_02.png',
-            img_link_tablet: 'img/room_02-tablet.png',
-            img_link_desktop: 'img/room_02-desktop.png',
+            img_mobile: 'img/room_02.png',
+            img_tablet: 'img/room_02-tablet.png',
+            img_desktop: 'img/room_02-desktop.png',
         },
         {
             id: 3,
             title: 'Сьют',
             lists: ['Площадь - 1,56 м2', 'Размеры (ШхГхВ) 125х125х180 см', 'Цена за сутки: 350₽'],
-            img_link_mobile: 'img/room_03.png',
-            img_link_tablet: 'img/room_03-tablet.png',
-            img_link_desktop: 'img/room_03-desktop.png',
+            img_mobile: 'img/room_03.png',
+            img_tablet: 'img/room_03-tablet.png',
+            img_desktop: 'img/room_03-desktop.png',
         },
     ],
     }
