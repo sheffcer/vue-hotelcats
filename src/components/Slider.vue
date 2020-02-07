@@ -56,11 +56,11 @@ data () {
             clickable: true,
         },
     breakpoints: {
-            1800: {
+            1920: {
             slidesPerView: 3,
             spaceBetween: 40
             },
-            1170: {
+            1366: {
             slidesPerView: 2,
             spaceBetween: 40
             },
