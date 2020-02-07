@@ -1,0 +1,165 @@
+<template>
+  <div class="modal-cart  modal-cart--form">
+    <div class="modal-cart__shadow"></div>
+    <div class="modal-cart__inner">
+      <form action="">
+        <div class="modal-cart__content  modal-cart__content--form">
+
+          <h2 class="modal-cart__title modal-cart__title--form">Забронировать номер</h2>
+          <div class="fields-group  fields-group--modal">
+            <label class="field-text  field-text--modal">
+              <div class="field-text__input-wrap">
+                <input class="field-text__input  field-text__input--modal" type="text" placeholder="Ваше имя" required>
+              </div>
+            </label>
+            <label class="field-text  field-text--modal">
+              <div class="field-text__input-wrap">
+                <input class="field-text__input  field-text__input--modal" type="text" placeholder="Имя Питомца"
+                  required>
+              </div>
+            </label>
+            <label class="field-text  field-text--modal">
+              <div class="field-text__input-wrap">
+                <input class="field-text__input  field-text__input--modal" type="text" placeholder="Телефон" required>
+              </div>
+            </label>
+            <label class="field-text  field-text--error field-text--modal">
+              <div class="field-text__input-wrap">
+                <input class="field-text__input  field-text__input--modal" type="email" placeholder="E-mail" required>
+              </div>
+            </label>
+          </div>
+          <div class="fields-group  fields-group--date">
+            <p class="fields-group__header">Дата заезда</p>
+            <div class="fields-group__wrap">
+              <label class="field-text  field-text--date">
+                <div class="field-text__name">c</div>
+                <div class="field-text__input-wrap">
+                  <input class="field-text__input  field-text__input--date" type="date" placeholder="26.01.2020"
+                    required>
+                </div>
+              </label>
+              <label class="field-text  field-text--date">
+                <div class="field-text__name">по</div>
+                <div class="field-text__input-wrap">
+                  <input class="field-text__input  field-text__input--date" type="date" placeholder="26.02.2020"
+                    required>
+                </div>
+              </label>
+            </div>
+          </div>
+          <button class="modal-cart__close" type="button"></button>
+          <button type="submit" class="btn  btn--room" value="Ок">Отправить заявку</button>
+      </form>
+    </div>
+    </div>
+   <!-- </div> -->
+
+</template>
+
+<script>
+// import $ from 'jquery';
+export default {
+name: 'Modal',
+
+}
+
+</script>
+
+<style lang="scss">
+@import "@/assets/sass/grid-mixins.scss";
+@import "@/assets/sass/variables.scss";
+
+.modal-cart {
+  // display: block;
+  display: none;
+  position: relative;
+  // }
+
+  &__inner {
+    @include container;
+  }
+
+  &__close {
+    border: 0;
+    outline: 0;
+    background-color: #ffffff;
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    left: 260px;
+    top: 10px;
+    background: url("../img/menu-close.svg") no-repeat;
+  }
+
+  &__shadow {
+    // display: block;
+    display: none;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+    background-color: #ffffff;
+  }
+
+  &__content {
+    min-height: 277px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    max-width: 290px;
+    z-index: 9999;
+    position: fixed;
+    top: 10%;
+    // top: 30%;
+    // left: 22%;
+    box-shadow: 1px 1px 6px $cart-shadow;
+    border-radius: 6px;
+    background-color: $body-bg;
+
+    &--form {
+      padding-bottom: 40px;
+    }
+
+    & button {
+      padding-left: 0;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-top: 60px;
+    font-family: $font-family--rubik;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  &__title--form {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  &__text {
+    // display: block;
+    padding-left: 60px;
+    padding-right: 60px;
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+  }
+
+
+}
+
+
+</style>
