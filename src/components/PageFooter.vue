@@ -25,7 +25,7 @@
         </nav>
     </div>
     <div class="page-footer__copyright">
-        <p> <img src="img/copyrightsvg.svg"> 2019 Все права защищены</p>
+        <p> <img src="img/copyrightsvg.svg" alt="copyright"> 2019 Все права защищены</p>
         <p>Политика конфиденциальности</p>
     </div>
     </div>
