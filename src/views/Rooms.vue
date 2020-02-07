@@ -20,7 +20,25 @@ export default {
   components: {
     Room,
     Banner,
-    Contacts,
-}
+    Contacts
+},
+// methods: {
+//   initModal: () => {
+//     let modal = document.querySelector('.modal-cart--form')
+//     let modalShadow = document.querySelector('.modal-cart--form .modal-cart__shadow')
+//     let modalButtons = document.querySelectorAll(".room__grid a.btn--room")
+//       modalButtons.forEach(button => {
+//         button.addEventListener('click', () => {
+//           modalShadow.style.cssText = 'display:block'
+//           modal.style.cssText = 'display:block'
+//           })
+//     })
+//   }
+
+// }
+// mounted: {
+//   // initModal()
+
+// }
 }
 </script>

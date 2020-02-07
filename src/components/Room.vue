@@ -109,7 +109,7 @@
                 <li>Цена за сутки: <span>{{room.price}}</span></li>
                 </ul>
             </div>
-            <a href="" class="btn  btn--room" v-on:click.stop.prevent>Забронировать</a>
+            <a href="" class="btn  btn--room" v-on:click.prevent="reserveRoom">Забронировать</a>
             </div>
         </div>
         </div>
@@ -202,6 +202,20 @@ data () {
     ],
     }
 },
+methods: {
+    reserveRoom: () => {
+        let modal = document.querySelector('.modal-cart--form')
+        let modalShadow = document.querySelector('.modal-cart--form .modal-cart__shadow')
+        let modalClose = document.querySelector('.modal-cart--form .modal-cart__close')
+
+         modalShadow.style.cssText = 'display:block'
+         modal.style.cssText = 'display:block'
+            modalClose.addEventListener('click', () => {
+                modalShadow.style.cssText = 'display:none';
+                modal.style.cssText = 'display:none';
+            })
+        }
+    }
 }
 </script>
 

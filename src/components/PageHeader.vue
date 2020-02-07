@@ -36,29 +36,30 @@ components: {
 methods: {
     menuToggle: () => {
         // let navToggle = document.querySelector(".nav-toggle");
-        let navLinks = document.querySelectorAll(".main-nav__link");
-         document.body.classList.toggle("nav-open");
+        let navLinks = document.querySelectorAll(".main-nav__link")
+         document.body.classList.toggle("nav-open")
 
         // navToggle.addEventListener("click", () => {
         //     document.body.classList.toggle("nav-open");
         //     });
         navLinks.forEach(link => {
             link.addEventListener("click", () => {
-            document.body.classList.remove("nav-open");
-            });
-        });
+            document.body.classList.remove("nav-open")
+            })
+        })
 
 
         },
     closeMenu: () => {
-        let navLinks = document.querySelectorAll(".main-nav__link");
+        let navLinks = document.querySelectorAll(".main-nav__link")
         navLinks.forEach(link => {
             link.addEventListener("click", () => {
-            document.body.classList.remove("nav-open");
-            });
-        });
+            document.body.classList.remove("nav-open")
+            })
+        })
     }
     }
+
 }
 </script>
 
