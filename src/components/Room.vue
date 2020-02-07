@@ -97,14 +97,14 @@
             <picture class="room__img-wrap">
                 <source media="(min-width: 1366px)" v-bind:srcset="room.img_desktop">
                 <source media="(min-width: 768px)" v-bind:srcset="room.img_tablet">
-                <img v-bind:src="room.img_mobile" alt="">
+                <img v-bind:src="room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
             </picture>
             <div class="room__content">
                 <h2 class="room__title">{{room.title}}</h2>
                 <ul class="room__content-list">
                 <li>Размеры (ШхГхВ) {{room.size}}</li>
                 <li>Площадь - {{room.square}}</li>
-                <li>Оснащение номера <span class="room__icons"><img v-for="(svg, index) in room.svgs" :key="index" v-bind:src="svg" alt=""></span>
+                <li>Оснащение номера <span class="room__icons"><img v-for="(svg, index) in room.svgs" :key="index" v-bind:src="svg" v-bind:alt="svg.slice(4)"></span>
                 </li>
                 <li>Цена за сутки: <span>{{room.price}}</span></li>
                 </ul>

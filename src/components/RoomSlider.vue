@@ -8,7 +8,7 @@
             <picture class="room-slider__item-img">
             <source media="(min-width: 1366px)" v-bind:srcset="room.img_desktop">
             <source media="(min-width: 768px)" v-bind:srcset="room.img_tablet">
-            <img v-bind:src="room.img_mobile" alt="">
+            <img v-bind:src="room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
             </picture>
             <div class="room-slider__content">
             <h2 class="room-slider__title">{{room.title}}</h2>
