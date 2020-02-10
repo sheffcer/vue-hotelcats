@@ -2,7 +2,7 @@
   <div class="modal-cart  modal-cart--form">
     <div class="modal-cart__shadow"></div>
     <div class="modal-cart__inner">
-      <form action=""  v-on:click="onSubmit">
+      <form action=""  v-on:click.prevent="onSubmit">
         <div class="modal-cart__content  modal-cart__content--form">
 
           <h2 class="modal-cart__title modal-cart__title--form">Забронировать номер</h2>
@@ -18,10 +18,9 @@
                 <div class="error field-text__help-text" v-if="!$v.name.required">Поле обязательно</div>
                 <div class="error field-text__help-text" v-if="!$v.name.minLength">Имя должно состоять как минимум из
                   {{$v.name.$params.minLength.min}} букв.</div>
-                   <!-- <tree-view :data="$v.name" :options="{rootObjectKey: '$v.name', maxDepth: 2}"></tree-view> -->
               </div>
             </label>
-                        <label class="field-text  field-text--modal"
+            <label class="field-text  field-text--modal"
             :class="{ 'field-text--error': $v.petName.$error}"
             >
               <div class="field-text__input-wrap">
@@ -34,9 +33,17 @@
                   {{$v.petName.$params.minLength.min}} букв.</div>
               </div>
             </label>
-            <label class="field-text  field-text--modal">
+            <label class="field-text  field-text--modal"
+            :class="{ 'field-text--error': $v.phone.$error}"
+            >
               <div class="field-text__input-wrap">
-                <input class="field-text__input  field-text__input--modal" type="text" placeholder="Телефон">
+                <input
+                id="phone"
+                v-model.trim="$v.phone.$model"
+                class="field-text__input  field-text__input--modal" type="text" placeholder="Телефон">
+                <div class="error field-text__help-text" v-if="!$v.petName.required">Поле обязательно</div>
+                <div class="error field-text__help-text" v-if="!$v.petName.minLength">Имя должно состоять как минимум из
+                  {{$v.petName.$params.minLength.min}} букв.</div>
               </div>
             </label>
             <label
@@ -49,6 +56,8 @@
                 v-model.trim="email"
                 :class = "{'field-text--error': ($v.email.$dirty && $v.email.required)}"
                 placeholder="E-mail">
+                <div class="error field-text__help-text" v-if="!$v.email.required">Поле обязательно</div>
+                <div class="error field-text__help-text" v-if="!$v.email.email">Введите корректный email</div>
               </div>
             </label>
           </div>
@@ -72,7 +81,12 @@
             </div>
           </div> -->
           <button class="modal-cart__close" type="button"></button>
-          <button  type="submit" class="btn  btn--room" value="Ок">Отправить заявку</button>
+          <button  type="submit" class="btn  btn--room" value="Ок"
+          :disabled="submitStatus === 'PENDING'"
+          >Отправить заявку</button>
+          <p class="typo__p" v-if="submitStatus === 'OK'">Спасибо за заявку!</p>
+          <p class="typo__p" v-if="submitStatus === 'ERROR'">Пожалуйста, заполните форму правильно.</p>
+          <p class="typo__p" v-if="submitStatus === 'PENDING'">Отправка...</p>
         </div>
       </form>
     </div>
@@ -91,6 +105,8 @@ data () {
   name: '',
   petName: '',
   email: '',
+  phone: '',
+  submitStatus: null
   }
 },
 validations: {
@@ -105,6 +121,10 @@ validations: {
     email: {
       email,
       required,
+    },
+    phone: {
+      required,
+      minLength: minLength(10)
     }
   },
 methods: {
@@ -116,7 +136,17 @@ methods: {
     // // if (this.$router.path === '/rooms') {
     // this.$router.push('/')
     // }
+    this.$v.$touch()
+      if (this.$v.$invalid) {
+        this.submitStatus = 'ERROR'
+      } else {
+        // do your submit logic here
+        this.submitStatus = 'PENDING'
+        setTimeout(() => {
+          this.submitStatus = 'OK'
+        }, 500)
   }
+}
 }
 }
 
