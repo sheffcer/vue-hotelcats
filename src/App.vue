@@ -15,6 +15,7 @@
 import PageHeader from '@/components/PageHeader.vue'
 import PageFooter from '@/components/PageFooter.vue'
 import Modal from '@/components/Modal.vue'
+// import routes from '/router/index.js'
 
 export default {
   name: 'app',

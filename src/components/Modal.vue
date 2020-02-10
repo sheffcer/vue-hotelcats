@@ -2,34 +2,57 @@
   <div class="modal-cart  modal-cart--form">
     <div class="modal-cart__shadow"></div>
     <div class="modal-cart__inner">
-      <form action="">
+      <form action=""  v-on:click="onSubmit">
         <div class="modal-cart__content  modal-cart__content--form">
 
           <h2 class="modal-cart__title modal-cart__title--form">Забронировать номер</h2>
           <div class="fields-group  fields-group--modal">
-            <label class="field-text  field-text--modal">
+            <label class="field-text  field-text--modal"
+            :class="{ 'field-text--error': $v.name.$error}"
+            >
               <div class="field-text__input-wrap">
-                <input class="field-text__input  field-text__input--modal" type="text" placeholder="Ваше имя" required>
+                <input
+                id="name"
+                v-model.trim="$v.name.$model"
+                class="field-text__input  field-text__input--modal" type="text" placeholder="Ваше имя" >
+                <div class="error field-text__help-text" v-if="!$v.name.required">Поле обязательно</div>
+                <div class="error field-text__help-text" v-if="!$v.name.minLength">Имя должно состоять как минимум из
+                  {{$v.name.$params.minLength.min}} букв.</div>
+                   <!-- <tree-view :data="$v.name" :options="{rootObjectKey: '$v.name', maxDepth: 2}"></tree-view> -->
+              </div>
+            </label>
+                        <label class="field-text  field-text--modal"
+            :class="{ 'field-text--error': $v.petName.$error}"
+            >
+              <div class="field-text__input-wrap">
+                <input
+                id="name"
+                v-model.trim="$v.petName.$model"
+                class="field-text__input  field-text__input--modal" type="text" placeholder="Имя питомца" >
+                <div class="error field-text__help-text" v-if="!$v.petName.required">Поле обязательно</div>
+                <div class="error field-text__help-text" v-if="!$v.petName.minLength">Имя должно состоять как минимум из
+                  {{$v.petName.$params.minLength.min}} букв.</div>
               </div>
             </label>
             <label class="field-text  field-text--modal">
               <div class="field-text__input-wrap">
-                <input class="field-text__input  field-text__input--modal" type="text" placeholder="Имя Питомца"
-                  required>
+                <input class="field-text__input  field-text__input--modal" type="text" placeholder="Телефон">
               </div>
             </label>
-            <label class="field-text  field-text--modal">
+            <label
+            :class="{ 'field-text--error': $v.email.$error }"
+            class="field-text  field-text--modal">
               <div class="field-text__input-wrap">
-                <input class="field-text__input  field-text__input--modal" type="text" placeholder="Телефон" required>
-              </div>
-            </label>
-            <label class="field-text  field-text--error field-text--modal">
-              <div class="field-text__input-wrap">
-                <input class="field-text__input  field-text__input--modal" type="email" placeholder="E-mail" required>
+                <input class="field-text__input  field-text__input--modal"
+                id="email"
+                type="text"
+                v-model.trim="email"
+                :class = "{'field-text--error': ($v.email.$dirty && $v.email.required)}"
+                placeholder="E-mail">
               </div>
             </label>
           </div>
-          <div class="fields-group  fields-group--date">
+          <!-- <div class="fields-group  fields-group--date">
             <p class="fields-group__header">Дата заезда</p>
             <div class="fields-group__wrap">
               <label class="field-text  field-text--date">
@@ -47,9 +70,9 @@
                 </div>
               </label>
             </div>
-          </div>
+          </div> -->
           <button class="modal-cart__close" type="button"></button>
-          <button v-on:submit.prevent type="submit" class="btn  btn--room" value="Ок">Отправить заявку</button>
+          <button  type="submit" class="btn  btn--room" value="Ок">Отправить заявку</button>
         </div>
       </form>
     </div>
@@ -60,9 +83,41 @@
 
 <script>
 // import $ from 'jquery';
+import { required, minLength, email } from 'vuelidate/lib/validators'
 export default {
 name: 'Modal',
-
+data () {
+  return {
+  name: '',
+  petName: '',
+  email: '',
+  }
+},
+validations: {
+    name: {
+      required,
+      minLength: minLength(6)
+    },
+    petName: {
+      required,
+      minLength: minLength(3)
+    },
+    email: {
+      email,
+      required,
+    }
+  },
+methods: {
+  onSubmit: function() {
+    // let modal = document.querySelector('.modal-cart--form')
+    // let modalShadow = document.querySelector('.modal-cart--form .modal-cart__shadow')
+    // modalShadow.style.cssText = 'display:none'
+    // modal.style.cssText = 'display:none'
+    // // if (this.$router.path === '/rooms') {
+    // this.$router.push('/')
+    // }
+  }
+}
 }
 
 </script>
