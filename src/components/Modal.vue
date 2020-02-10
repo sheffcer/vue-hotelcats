@@ -2,7 +2,7 @@
   <div class="modal-cart  modal-cart--form">
     <div class="modal-cart__shadow"></div>
     <div class="modal-cart__inner">
-      <form action=""  v-on:click.prevent="onSubmit">
+      <form action="">
         <div class="modal-cart__content  modal-cart__content--form">
 
           <h2 class="modal-cart__title modal-cart__title--form">Забронировать номер</h2>
@@ -64,23 +64,31 @@
           <div class="fields-group  fields-group--date">
             <p class="fields-group__header">Дата заезда</p>
             <div class="fields-group__wrap">
-              <label class="field-text  field-text--date">
+              <label 
+              :class="{ 'field-text--error': $v.dateFrom.$error }"
+              class="field-text  field-text--date">
                 <div class="field-text__name">c</div>
                 <div class="field-text__input-wrap">
                   <!-- <input class="field-text__input  field-text__input--date" type="date" placeholder="26.01.2020" -->
                     <!-- required> -->
                     <Datepicker
+                    id="dateFrom"
+                    v-model.trim="$v.dateFrom.$model"
                     class="field-text__input  field-text__input--date"
                     placeholder="26.01.2020"
                     />
                 </div>
               </label>
-              <label class="field-text  field-text--date">
+              <label 
+              :class="{ 'field-text--error': $v.dateTo.$error }"
+              class="field-text  field-text--date">
                 <div class="field-text__name">по</div>
                 <div class="field-text__input-wrap">
                   <!-- <input class="field-text__input  field-text__input--date" type="date" placeholder="26.02.2020"
                     required> -->
                     <Datepicker
+                    id="dateTo"
+                    v-model.trim="$v.dateTo.$model"
                     class="field-text__input  field-text__input--date"
                     placeholder="26.02.2020"
                     />
@@ -89,7 +97,9 @@
             </div>
           </div>
           <button class="modal-cart__close" type="button"></button>
-          <button  type="submit" class="btn  btn--room" value="Ок"
+          <button
+          v-on:click.prevent="onSubmit"
+          type="submit" class="btn  btn--room" value="Ок"
           :disabled="submitStatus === 'PENDING'"
           >Отправить заявку</button>
           <p class="typo__p" v-if="submitStatus === 'OK'">Спасибо за заявку!</p>
@@ -99,7 +109,7 @@
       </form>
     </div>
     </div>
-   <!-- </div> -->
+
 
 </template>
 
@@ -139,6 +149,12 @@ validations: {
     phone: {
       required,
       minLength: minLength(10)
+    },
+    dateFrom: {
+      required
+    },
+    dateTo : {
+      required
     }
   },
 methods: {
@@ -177,6 +193,9 @@ methods: {
 .vdp-datepicker  input {
   border: 0!important;
   width: 90px;
+}
+.field-text--error .vdp-datepicker  input {
+  background-color: #f9e2e2!important;
 }
 
 .modal-cart {
