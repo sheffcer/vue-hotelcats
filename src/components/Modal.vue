@@ -74,7 +74,7 @@
                     <Datepicker
                     id="dateFrom"
                     v-model.trim="$v.dateFrom.$model"
-                    class="field-text__input  field-text__input--date"
+                    class=""
                     placeholder="26.01.2020"
                     />
                 </div>
@@ -89,7 +89,7 @@
                     <Datepicker
                     id="dateTo"
                     v-model.trim="$v.dateTo.$model"
-                    class="field-text__input  field-text__input--date"
+                    class=""
                     placeholder="26.02.2020"
                     />
                 </div>
@@ -192,10 +192,16 @@ methods: {
 
 .vdp-datepicker  input {
   border: 0!important;
-  width: 90px;
+  box-sizing: border-box;
+  padding: 17px 0!important;
+  padding-left: 10px!important;
+  width: 107px!important;
+  border-radius: 25px!important;
+  border: 1px solid #E1E1E1!important;
 }
 .field-text--error .vdp-datepicker  input {
   background-color: #f9e2e2!important;
+  border-color: #d8544f!important;
 }
 
 .modal-cart {
