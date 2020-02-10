@@ -61,25 +61,33 @@
               </div>
             </label>
           </div>
-          <!-- <div class="fields-group  fields-group--date">
+          <div class="fields-group  fields-group--date">
             <p class="fields-group__header">Дата заезда</p>
             <div class="fields-group__wrap">
               <label class="field-text  field-text--date">
                 <div class="field-text__name">c</div>
                 <div class="field-text__input-wrap">
-                  <input class="field-text__input  field-text__input--date" type="date" placeholder="26.01.2020"
-                    required>
+                  <!-- <input class="field-text__input  field-text__input--date" type="date" placeholder="26.01.2020" -->
+                    <!-- required> -->
+                    <Datepicker
+                    class="field-text__input  field-text__input--date"
+                    placeholder="26.01.2020"
+                    />
                 </div>
               </label>
               <label class="field-text  field-text--date">
                 <div class="field-text__name">по</div>
                 <div class="field-text__input-wrap">
-                  <input class="field-text__input  field-text__input--date" type="date" placeholder="26.02.2020"
-                    required>
+                  <!-- <input class="field-text__input  field-text__input--date" type="date" placeholder="26.02.2020"
+                    required> -->
+                    <Datepicker
+                    class="field-text__input  field-text__input--date"
+                    placeholder="26.02.2020"
+                    />
                 </div>
               </label>
             </div>
-          </div> -->
+          </div>
           <button class="modal-cart__close" type="button"></button>
           <button  type="submit" class="btn  btn--room" value="Ок"
           :disabled="submitStatus === 'PENDING'"
@@ -98,14 +106,20 @@
 <script>
 // import $ from 'jquery';
 import { required, minLength, email } from 'vuelidate/lib/validators'
+import Datepicker from 'vuejs-datepicker'
 export default {
 name: 'Modal',
+components: {
+    Datepicker
+  },
 data () {
   return {
   name: '',
   petName: '',
   email: '',
   phone: '',
+  dateFrom: '',
+  dateTo: '',
   submitStatus: null
   }
 },
@@ -155,6 +169,15 @@ methods: {
 <style lang="scss">
 @import "@/assets/sass/grid-mixins.scss";
 @import "@/assets/sass/variables.scss";
+
+// .fields-group .btn, .fields-group select, .fields-group input {
+//   border:0!important;
+// }
+
+.vdp-datepicker  input {
+  border: 0!important;
+  width: 90px;
+}
 
 .modal-cart {
   // display: block;
