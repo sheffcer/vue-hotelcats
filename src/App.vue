@@ -8,6 +8,7 @@
     <router-view/>
     <PageFooter/>
     <Modal/>
+    <ModalSecond/>
   </div>
 </template>
 
@@ -15,6 +16,7 @@
 import PageHeader from '@/components/PageHeader.vue'
 import PageFooter from '@/components/PageFooter.vue'
 import Modal from '@/components/Modal.vue'
+import ModalSecond from '@/components/ModalSecond.vue'
 // import routes from '/router/index.js'
 
 export default {
@@ -22,7 +24,8 @@ export default {
   components: {
     PageHeader,
     PageFooter,
-    Modal
+    Modal,
+    ModalSecond
   }
 }
 </script>

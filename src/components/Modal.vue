@@ -17,7 +17,7 @@
                 class="field-text__input  field-text__input--modal" type="text" placeholder="Ваше имя" >
                 <div class="error field-text__help-text" v-if="!$v.name.required">Поле обязательно</div>
                 <div class="error field-text__help-text" v-if="!$v.name.minLength">Имя должно состоять как минимум из
-                  {{$v.name.$params.minLength.min}} букв.</div>
+                  {{$v.name.$params.minLength.min}} букв. Сейчас оно {{name.length}}</div>
               </div>
             </label>
             <label class="field-text  field-text--modal"
@@ -30,7 +30,7 @@
                 class="field-text__input  field-text__input--modal" type="text" placeholder="Имя питомца" >
                 <div class="error field-text__help-text" v-if="!$v.petName.required">Поле обязательно</div>
                 <div class="error field-text__help-text" v-if="!$v.petName.minLength">Имя должно состоять как минимум из
-                  {{$v.petName.$params.minLength.min}} букв.</div>
+                  {{$v.petName.$params.minLength.min}} букв. Сейчас оно {{petName.length}}</div>
               </div>
             </label>
             <label class="field-text  field-text--modal"
@@ -79,7 +79,7 @@
                     />
                 </div>
               </label>
-              <label 
+              <label
               :class="{ 'field-text--error': $v.dateTo.$error }"
               class="field-text  field-text--date">
                 <div class="field-text__name">по</div>
@@ -166,15 +166,48 @@ methods: {
     // // if (this.$router.path === '/rooms') {
     // this.$router.push('/')
     // }
+  //   this.$v.$touch()
+  //     if (this.$v.$invalid) {
+  //       this.submitStatus = 'ERROR'
+  //     } else {
+  //       // do your submit logic here
+  //       this.submitStatus = 'PENDING'
+  //       setTimeout(() => {
+  //         this.submitStatus = 'OK'
+  //       }, 500)
+  // }
+
+  if (this.$v.$invalid) {
     this.$v.$touch()
-      if (this.$v.$invalid) {
-        this.submitStatus = 'ERROR'
-      } else {
-        // do your submit logic here
-        this.submitStatus = 'PENDING'
-        setTimeout(() => {
-          this.submitStatus = 'OK'
-        }, 500)
+    return
+  } else {
+  let formData = {
+    name: this.name,
+    petName: this.petName,
+    email: this.email,
+    phone: this.phone,
+    dateFrom: this.dateFrom,
+    dateTo: this.dateTo
+  }
+  console.log(formData)
+    let modal = document.querySelector('.modal-cart--form')
+    let modalShadow = document.querySelector('.modal-cart--form .modal-cart__shadow')
+    modalShadow.style.cssText = 'display:none'
+    modal.style.cssText = 'display:none'
+
+        // setTimeout(() => {
+        let modalSecond = document.querySelector('#order')
+        let modalShadowS = document.querySelector('#order .modal-cart__shadow')
+        let modalCloseS = document.querySelector('#order  .modal-cart__close')
+
+         modalShadowS.style.cssText = 'display:block'
+         modalSecond.style.cssText = 'display:block'
+            modalCloseS.addEventListener('click', () => {
+                modalShadowS.style.cssText = 'display:none';
+                modalSecond.style.cssText = 'display:none';
+            })
+            //  }, 100)
+  // this.$router.push('/')
   }
 }
 }
