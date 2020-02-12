@@ -262,6 +262,10 @@ methods: {
       left: 460px;
       top: 20px;
     }
+    @media (min-width: $screen-lg) {
+      left: 525px;
+      top: 25px;
+    }
   }
 
   &__shadow {
