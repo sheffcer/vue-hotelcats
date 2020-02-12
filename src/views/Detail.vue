@@ -18,7 +18,12 @@
                 <li>Площадь - {{room.square}}</li>
                 <li>Оснащение номера
                     <ul class="detail__content-list">
-                        <li><div class="detail__icons"><img v-for="(svg, index) in room.svgs" :key="index" v-bind:src="'/' + svg" v-bind:alt="svg.slice(4)"></div></li>
+                        <li>
+                            <div class="detail__icons">
+                                <img v-for="(svg, index) in room.svgs" :key="index" v-bind:src="'/' + svg" v-bind:alt="svg.slice(4)">
+                                <!-- <span v-for="(tooltip, index) in room.tooltips" :key="index" >{{tooltip}} </span> -->
+                            </div>
+                        </li>
                     </ul>
                 </li>
                 <li>Цена за сутки: <span>{{room.price}}</span></li>
