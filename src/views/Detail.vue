@@ -6,8 +6,8 @@
      <div class="detail__item" v-if="id == room.id">
        <div class="detail__item-wrap">
        <picture class="detail__img-wrap">
-            <source media="(min-width: 1366px)" v-bind:srcset="room.img_desktop">
-            <source media="(min-width: 768px)" v-bind:srcset="room.img_tablet">
+            <source media="(min-width: 1366px)" v-bind:srcset="'/' + room.img_desktop">
+            <source media="(min-width: 768px)" v-bind:srcset="'/' + room.img_tablet">
             <img v-bind:src="'/' + room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
         </picture>
         <!-- <h2>{{room.title}}</h2> -->
