@@ -6,9 +6,9 @@
         <swiper-slide class="room-slider__item"  v-for='room in rooms' v-bind:key='room.id'>
             <div class="room-slider__item-wrap">
             <picture class="room-slider__item-img">
-            <source media="(min-width: 1366px)" v-bind:srcset="room.img_desktop">
-            <source media="(min-width: 768px)" v-bind:srcset="room.img_tablet">
-            <img v-bind:src="room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
+            <source media="(min-width: 1366px)" v-bind:srcset="'/' + room.img_desktop">
+            <source media="(min-width: 768px)" v-bind:srcset="'/' + room.img_tablet">
+            <img v-bind:src="'/' + room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
             </picture>
             <div class="room-slider__content">
             <h2 class="room-slider__title">{{room.title}}</h2>

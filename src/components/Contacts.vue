@@ -47,9 +47,9 @@
         </div>
         <div class="contacts__map">
         <picture class="contacts__map-img">
-            <source media="(min-width: 1366px)" srcset="img/map-desktop.jpg">
-            <source media="(min-width: 768px)" srcset="img/map-tablet.jpg">
-            <img src="img/map-mobile.jpg" alt="map">
+            <source media="(min-width: 1366px)" srcset="/img/map-desktop.jpg">
+            <source media="(min-width: 768px)" srcset="/img/map-tablet.jpg">
+            <img src="/img/map-mobile.jpg" alt="map">
         </picture>
         </div>
     </div>

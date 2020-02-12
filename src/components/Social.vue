@@ -2,17 +2,17 @@
         <ul class="social">
             <li class="social__link-wrap social__link-wrap--fb">
             <a href="" class="social__link">
-                <img src="img/fb.svg" alt="fb">
+                <img src="/img/fb.svg" alt="fb">
             </a>
             </li>
             <li class="social__link-wrap social__link-wrap--instagram">
             <a href="" class="social__link">
-                <img src="img/instagram.svg" alt="instagram">
+                <img src="/img/instagram.svg" alt="instagram">
             </a>
             </li>
             <li class="social__link-wrap social__link-wrap--vk">
             <a href="" class="social__link">
-                <img src="img/vk.svg" alt="vk">
+                <img src="/img/vk.svg" alt="vk">
             </a>
             </li>
         </ul>

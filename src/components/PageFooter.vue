@@ -4,7 +4,7 @@
     <div class="page-footer-wrap">
         <div class="logo  logo--footer">
         <a href="#">
-            <img class="logo__img" src="img/logo.svg" alt="mobile-logo">
+            <img class="/logo__img" src="img/logo.svg" alt="mobile-logo">
         </a>
         </div>
         <nav class="main-nav  main-nav--footer">
@@ -25,7 +25,7 @@
         </nav>
     </div>
     <div class="page-footer__copyright">
-        <p> <img src="img/copyrightsvg.svg" alt="copyright"> 2019 Все права защищены</p>
+        <p> <img src="/img/copyrightsvg.svg" alt="copyright"> 2019 Все права защищены</p>
         <p>Политика конфиденциальности</p>
     </div>
     </div>
