@@ -257,6 +257,11 @@ methods: {
     left: 260px;
     top: 10px;
     background: url("/img/menu-close.svg") no-repeat;
+
+    @media (min-width: $screen-md) {
+      left: 460px;
+      top: 20px;
+    }
   }
 
   &__shadow {
@@ -273,6 +278,7 @@ methods: {
   }
 
   &__content {
+    position: relative;
     min-height: 277px;
     display: flex;
     flex-direction: column;
@@ -295,7 +301,41 @@ methods: {
     & button {
       padding-left: 0;
     }
+
+    @media (min-width: $screen-md) {
+      max-width: 502px;
+      top: 20%;
+      left: 25%;
+    }
+    @media (min-width: $screen-lg) {
+      max-width: 570px;
+      left: 25%;
+    }
   }
+
+  &__content::before {
+    position: absolute;
+    content: "";
+    background: url("/img/paw_modal_top.svg") no-repeat;
+    width: 72px;
+    height: 98px;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+  }
+
+  &__content--second::before {
+    position: absolute;
+    content: "";
+    background: url("/img/paw_modal_bottom.svg") no-repeat;
+    width: 93px;
+    height: 80px;
+    left: -12px;
+    top: 196px;
+    bottom: 0;
+    z-index: 1000;
+  }
+
 
   &__title {
     margin: 0;

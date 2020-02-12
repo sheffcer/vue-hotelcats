@@ -52,6 +52,10 @@
     padding: 17px 20px!important;
     width: 259px;
     border-radius: 25px;
+
+    @media (min-width: $screen-md) {
+     width: 440px;
+    }
   }
 
   &__input--date {

@@ -12,6 +12,16 @@
 &--modal {
   margin-top: 30px;
   flex-direction: column;
+
+  @media (min-width: $screen-md) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media (min-width: $screen-lg) {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
 }
 
 &--filter {
