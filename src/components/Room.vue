@@ -94,7 +94,7 @@
         <div class="room__grid">
         <div class="room__item" v-for='room in rooms' v-bind:key='room.id'>
             <div class="room__item-wrap">
-            <picture class="room__img-wrap">
+            <picture class="room__img-wrap" v-on:click="goTodetail(room.id)">
                 <source media="(min-width: 1366px)" v-bind:srcset="room.img_desktop">
                 <source media="(min-width: 768px)" v-bind:srcset="room.img_tablet">
                 <img v-bind:src="room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
@@ -214,7 +214,10 @@ methods: {
                 modalShadow.style.cssText = 'display:none';
                 modal.style.cssText = 'display:none';
             })
-        }
+        },
+     goTodetail: function (id) {
+        this.$router.push({name:'detail', params:{Pid:id}})
+     }
     }
 }
 </script>
