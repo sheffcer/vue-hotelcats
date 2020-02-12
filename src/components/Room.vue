@@ -268,7 +268,7 @@ methods: {
     min-height: 428px;
 
     @media (min-width: $screen-md) {
-    min-height: 428px;;
+    min-height: 428px;
     }
 
     @media (min-width: $screen-lg) {
@@ -303,6 +303,7 @@ methods: {
     flex-shrink: 0;
     display: block;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 &__header {
     font-family: $font-family--rubik;
