@@ -64,7 +64,7 @@
           <div class="fields-group  fields-group--date">
             <p class="fields-group__header">Дата заезда</p>
             <div class="fields-group__wrap">
-              <label 
+              <label
               :class="{ 'field-text--error': $v.dateFrom.$error }"
               class="field-text  field-text--date">
                 <div class="field-text__name">c</div>
@@ -200,8 +200,8 @@ methods: {
         let modalShadowS = document.querySelector('#order .modal-cart__shadow')
         let modalCloseS = document.querySelector('#order  .modal-cart__close')
 
-         modalShadowS.style.cssText = 'display:block'
-         modalSecond.style.cssText = 'display:block'
+        modalShadowS.style.cssText = 'display:block'
+        modalSecond.style.cssText = 'display:block'
             modalCloseS.addEventListener('click', () => {
                 modalShadowS.style.cssText = 'display:none';
                 modalSecond.style.cssText = 'display:none';

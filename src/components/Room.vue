@@ -208,16 +208,16 @@ methods: {
         let modalShadow = document.querySelector('.modal-cart--form .modal-cart__shadow')
         let modalClose = document.querySelector('.modal-cart--form .modal-cart__close')
 
-         modalShadow.style.cssText = 'display:block'
-         modal.style.cssText = 'display:block'
+        modalShadow.style.cssText = 'display:block'
+        modal.style.cssText = 'display:block'
             modalClose.addEventListener('click', () => {
                 modalShadow.style.cssText = 'display:none';
                 modal.style.cssText = 'display:none';
             })
         },
-     goTodetail: function (id) {
+    goTodetail: function (id) {
         this.$router.push({name:'detail', params:{Pid:id}})
-     }
+        }
     }
 }
 </script>

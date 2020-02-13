@@ -22,6 +22,9 @@
                             <div class="detail__icons">
                                 <img v-for="(svg, index) in room.svgs" :key="index" v-bind:src="'/' + svg" v-bind:alt="svg.slice(4)">
                                 <!-- <span v-for="(tooltip, index) in room.tooltips" :key="index" >{{tooltip}} </span> -->
+                                <div class="detail__tooltip">
+                                <div v-for="(tooltip, index) in room.tooltips" :key="index">{{tooltip}}</div>
+                                </div>
                             </div>
                         </li>
                     </ul>
@@ -130,9 +133,24 @@ data () {
         },
 
 
-    ]
+        ],
+
         }
-    }
+    },
+methods: {
+    reserveRoom: () => {
+        let modal = document.querySelector('.modal-cart--form')
+        let modalShadow = document.querySelector('.modal-cart--form .modal-cart__shadow')
+        let modalClose = document.querySelector('.modal-cart--form .modal-cart__close')
+
+        modalShadow.style.cssText = 'display:block'
+        modal.style.cssText = 'display:block'
+            modalClose.addEventListener('click', () => {
+                modalShadow.style.cssText = 'display:none';
+                modal.style.cssText = 'display:none';
+            })
+        }
+}
 }
 </script>
 
@@ -171,13 +189,27 @@ data () {
         font-size: 15px;
         line-height: 18px;
 
-        & div {
+        & div, span {
             font-weight: 600;
         }
     }
 
+    &__content-list li:nth-last-child(-n+2) {
+        margin-bottom: 0;
+    }
+
+    &__tooltip {
+        position: absolute;
+        left: 35px;
+
+        & div {
+            margin-bottom: 19px;
+        }
+    }
+
     &__icons {
-        margin-top: 10px;
+        position: relative;
+        margin-top: 15px;
         display: flex;
     // justify-content: baseline;
         flex-direction: column;
