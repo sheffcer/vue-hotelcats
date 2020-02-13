@@ -11,7 +11,8 @@
             <img v-bind:src="'/' + room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
         </picture>
         <!-- <h2>{{room.title}}</h2> -->
-        <div class="room__content">
+        <div class="detail__wrap">
+        <div class="detail__content">
                 <h2 class="detail__title">{{room.title}}</h2>
                 <ul class="detail__content-list">
                 <li>Размеры (ШхГхВ) {{room.size}}</li>
@@ -34,25 +35,23 @@
             </div>
             <a href="" class="btn  btn--detail" v-on:click.prevent="reserveRoom">Забронировать</a>
         </div>
+        </div>
      </div>
     </div>
     </div>
     <RoomSlider/>
-    <!-- <Banner/> -->
     <Contacts/>
     </div>
 </template>
 
 <script>
 import RoomSlider from '@/components/RoomSlider.vue'
-// import Banner from '@/components/Banner.vue'
 import Contacts from '@/components/Contacts.vue'
 export default {
 name: 'Detail',
 components: {
     RoomSlider,
-    // Banner,
-     Contacts
+    Contacts
 },
 data () {
     return {
@@ -159,6 +158,14 @@ methods: {
 @import "@/assets/sass/variables.scss";
 
 .detail {
+    margin-top: 0;
+    @media (min-width: $screen-md) {
+        margin-top: 40px;
+    }
+
+    @media (min-width: $screen-lg) {
+        margin-top: 50px;
+    }
 
     &__inner {
         @include container;
@@ -173,6 +180,41 @@ methods: {
         font-weight: bold;
         font-size: 28px;
         line-height: 33px;
+
+        @media (min-width: $screen-md) {
+            margin: 0;
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 43px;
+        }
+
+         @media (min-width: $screen-lg) {
+            font-size: 36px;
+            line-height: 43px;
+        }
+    }
+
+    &__item-wrap {
+        @media (min-width: $screen-md) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        @media (min-width: $screen-lg) {
+            justify-content: flex-start;
+        }
+    }
+
+    &__wrap {
+        @media (min-width: $screen-md) {
+            // display: flex;
+        }
+    }
+
+    &__img-wrap {
+        @media (min-width: $screen-lg) {
+            margin-right: 100px;
+        }
     }
 
     &__content-list {
@@ -191,6 +233,17 @@ methods: {
 
         & div, span {
             font-weight: 600;
+        }
+
+        @media (min-width: $screen-md) {
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 18px;
+        }
+
+        @media (min-width: $screen-lg) {
+            font-size: 16px;
+            line-height: 19px;
         }
     }
 
@@ -236,6 +289,10 @@ methods: {
     flex-shrink: 0;
     border: 0;
 
+    @media (min-width: $screen-md) {
+        width: 206px!important;
+    }
+
     &::after {
         position: absolute;
         content: "";
@@ -245,6 +302,11 @@ methods: {
         top: 7px;
         left: 245px;
         z-index: 10;
+
+         @media (min-width: $screen-md) {
+            left: 162px;
+        }
+
         }
     }
 </style>
