@@ -289,9 +289,9 @@ methods: {
   }
 
   &__content {
-    overflow: auto;
+    // overflow-y: auto;
     position: relative;
-    min-height: 656px;
+    // min-height: 656px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -307,7 +307,12 @@ methods: {
     background-color: $body-bg;
 
     &--form {
+      // overflow-y: auto;
       padding-bottom: 40px;
+      min-height: 656px;
+    }
+    &--second {
+      padding-bottom: 25px;
     }
 
     & button {
