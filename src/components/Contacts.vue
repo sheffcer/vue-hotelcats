@@ -46,11 +46,29 @@
         </div>
         </div>
         <div class="contacts__map">
-        <picture class="contacts__map-img">
+              <!-- <l-map ref="myMap" class="contacts__map-img"> </l-map> -->
+              <div style="height: 350px;">
+    <!-- <div class="info" style="height: 15%">
+      <span>Center: {{ center }}</span>
+      <span>Zoom: {{ zoom }}</span>
+      <span>Bounds: {{ bounds }}</span>
+    </div> -->
+    <l-map
+      style="height: 80%; width: 320px"
+      :zoom="zoom"
+      :center="center"
+      @update:zoom="zoomUpdated"
+      @update:center="centerUpdated"
+      @update:bounds="boundsUpdated"
+    >
+      <!-- <l-tile-layer :url="url"></l-tile-layer> -->
+    </l-map>
+  </div>
+        <!-- <picture class="contacts__map-img">
             <source media="(min-width: 1366px)" srcset="/img/map-desktop.jpg">
             <source media="(min-width: 768px)" srcset="/img/map-tablet.jpg">
             <img src="/img/map-mobile.jpg" alt="map">
-        </picture>
+        </picture> -->
         </div>
     </div>
     </div>
@@ -59,11 +77,42 @@
 
 <script>
 import Social from '@/components/Social.vue'
+// import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
+// import { LMap } from 'vue2-leaflet'
+import {LMap} from 'vue2-leaflet'
 export default {
 name: 'Contacts',
 components: {
-    Social
-}
+    Social,
+    LMap,
+    // LTileLayer,
+    // LTileLayer,
+    // LMarker,
+},
+data () {
+    return {
+        url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        zoom: 16,
+        center: [59.926216, 30.325012],
+        bounds: null
+        };
+},
+methods: {
+    zoomUpdated (zoom) {
+        this.zoom = zoom;
+    },
+    centerUpdated (center) {
+        this.center = center;
+    },
+    boundsUpdated (bounds) {
+        this.bounds = bounds;
+    }
+},
+// mounted() {
+//     this.$nextTick(() => {
+//         this.$refs.myMap.mapObject.ANY_LEAFLET_MAP_METHOD();
+//     });
+//     },
 }
 </script>
 
@@ -71,6 +120,7 @@ components: {
 <style lang="scss">
 @import "@/assets/sass/grid-mixins.scss";
 @import "@/assets/sass/variables.scss";
+// @import '/node_modules/leaflet/dist/leaflet.css';
 .contacts {
 
 @media (min-width: $screen-md) {
