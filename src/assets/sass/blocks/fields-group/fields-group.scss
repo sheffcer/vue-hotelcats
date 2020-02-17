@@ -10,7 +10,7 @@
   // margin-bottom: 1rem;
 
 &--modal {
-  margin-top: 30px;
+  margin-top: 15px;
   flex-direction: column;
 
   @media (min-width: $screen-md) {
@@ -29,6 +29,10 @@
   justify-content: space-between;
 }
 
+&--date {
+  margin: 0;
+  margin-top: -15px;
+}
 // &--date {
 //   margin-bottom: 20px;
 // }

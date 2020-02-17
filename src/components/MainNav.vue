@@ -8,10 +8,10 @@
                 <router-link to="/rooms" class="main-nav__link">Номера</router-link> 
             </li>
             <li class="main-nav__item">
-            <a href="#rev" class="main-nav__link">Отзывы </a>
+            <a href="#swiper" class="main-nav__link">Отзывы </a>
             </li>
             <li class="main-nav__item">
-            <router-link to="#contacts"  class="main-nav__link">Контакты</router-link>
+            <router-link to="/#contacts"  class="main-nav__link">Контакты</router-link>
             </li>
         </ul>
         </nav>

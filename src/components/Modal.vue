@@ -237,6 +237,13 @@ methods: {
   border-color: #d8544f!important;
 }
 
+// form {
+//   position: absolute;
+//     left: 50%;
+//     top: 50%;
+//     transform: translate(-50%, -50%);
+// }
+
 .modal-cart {
   // display: block;
   display: none;
@@ -282,8 +289,9 @@ methods: {
   }
 
   &__content {
+    overflow: auto;
     position: relative;
-    min-height: 277px;
+    min-height: 656px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -291,7 +299,7 @@ methods: {
     max-width: 290px;
     z-index: 9999;
     position: fixed;
-    top: 10%;
+    top: 5%;
     // top: 30%;
     // left: 22%;
     box-shadow: 1px 1px 6px $cart-shadow;
@@ -307,11 +315,14 @@ methods: {
     }
 
     @media (min-width: $screen-md) {
+      overflow: none;
+      min-height: 629px;
       max-width: 502px;
-      top: 20%;
+      top: 15%;
       left: 25%;
     }
     @media (min-width: $screen-lg) {
+      min-height: 649px;
       max-width: 570px;
       left: 25%;
     }
@@ -343,7 +354,7 @@ methods: {
 
   &__title {
     margin: 0;
-    margin-top: 60px;
+    margin-top: 25px;
     font-family: $font-family--rubik;
     font-style: normal;
     font-weight: 600;
