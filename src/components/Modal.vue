@@ -308,8 +308,8 @@ methods: {
 
     &--form {
       // overflow-y: auto;
-      padding-bottom: 40px;
-      min-height: 656px;
+      padding-bottom: 30px;
+      // min-height: 656px;
     }
     &--second {
       padding-bottom: 25px;
