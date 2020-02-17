@@ -47,28 +47,28 @@
         </div>
         <div class="contacts__map">
               <!-- <l-map ref="myMap" class="contacts__map-img"> </l-map> -->
-              <div style="height: 350px;">
+              <!-- <div style="height: 350px;"> -->
     <!-- <div class="info" style="height: 15%">
       <span>Center: {{ center }}</span>
       <span>Zoom: {{ zoom }}</span>
       <span>Bounds: {{ bounds }}</span>
     </div> -->
-    <l-map
+    <!-- <l-map
       style="height: 80%; width: 320px"
       :zoom="zoom"
       :center="center"
       @update:zoom="zoomUpdated"
       @update:center="centerUpdated"
       @update:bounds="boundsUpdated"
-    >
+    > -->
       <!-- <l-tile-layer :url="url"></l-tile-layer> -->
-    </l-map>
-  </div>
-        <!-- <picture class="contacts__map-img">
+    <!-- </l-map> -->
+  <!-- </div> -->
+        <picture class="contacts__map-img">
             <source media="(min-width: 1366px)" srcset="/img/map-desktop.jpg">
             <source media="(min-width: 768px)" srcset="/img/map-tablet.jpg">
             <img src="/img/map-mobile.jpg" alt="map">
-        </picture> -->
+        </picture>
         </div>
     </div>
     </div>
@@ -79,12 +79,12 @@
 import Social from '@/components/Social.vue'
 // import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
 // import { LMap } from 'vue2-leaflet'
-import {LMap} from 'vue2-leaflet'
+// import {LMap} from 'vue2-leaflet'
 export default {
 name: 'Contacts',
 components: {
     Social,
-    LMap,
+    // LMap,
     // LTileLayer,
     // LTileLayer,
     // LMarker,
