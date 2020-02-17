@@ -2,13 +2,13 @@
         <nav class="main-nav">
         <ul class="main-nav__list">
             <li class="main-nav__item">
-            <a href="#features" class="main-nav__link">Почему мы? </a>
+            <a href="/#features" class="main-nav__link">Почему мы? </a>
             </li>
             <li class="main-nav__item">
                 <router-link to="/rooms" class="main-nav__link">Номера</router-link> 
             </li>
             <li class="main-nav__item">
-            <a href="#swiper" class="main-nav__link">Отзывы </a>
+            <a href="/#swiper" class="main-nav__link">Отзывы </a>
             </li>
             <li class="main-nav__item">
             <router-link to="/#contacts"  class="main-nav__link">Контакты</router-link>
