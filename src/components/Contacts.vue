@@ -117,6 +117,11 @@ methods: {
     background-image: url(/img/marker-shadow.png)!important;
 }
 
+.leaflet-marker-icon {
+    width: 31px!important;
+    height: 44px!important;
+}
+
 .contacts {
 
 @media (min-width: $screen-md) {
