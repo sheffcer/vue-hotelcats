@@ -7,12 +7,14 @@
         <button class="btn  btn--filter">Фильтры</button>
         <label class="field-select">
             <div class="field-select__select-wrap">
-            <select class="field-select__select">
-                <option>По площади</option>
-                <option>По площади</option>
-                <option>По цене</option>
-                <option>По цене</option>
+            <select v-model="selected" class="field-select__select" >
+                <option disabled value="">Выберите вариант</option>
+                <option>&#8593; По площади</option>
+                <option>&#8595; По площади</option>
+                <option>&#8593; По цене</option>
+                <option>&#8595; По цене</option>
             </select>
+            {{selected}}
             </div>
         </label>
         </div>
@@ -92,7 +94,7 @@
         </div>
         </form>
         <div class="room__grid">
-        <div class="room__item" v-for='room in rooms' v-bind:key='room.id'>
+        <div class="room__item" v-for='room in sortedByPrice' v-bind:key='room.id'>
             <div class="room__item-wrap">
             <picture class="room__img-wrap" v-on:click="goTodetail(room.id)">
                 <source media="(min-width: 1366px)" v-bind:srcset="room.img_desktop">
@@ -124,6 +126,7 @@ name: 'Room',
 data () {
     return {
     sliderValue: 3,
+    selected: '',
     rooms: [
         {
             id: 4,
@@ -218,7 +221,17 @@ methods: {
     goTodetail: function (id) {
         this.$router.push({name:'detail', params:{Pid:id}})
         }
-    }
+    },
+computed: {
+    sortedByPrice: function () {
+        let selected = this.rooms
+        return selected.sort((a,b) => {
+           b.price - a.price
+    })
+        // console.log(selected)
+    },
+
+}
 }
 </script>
 
