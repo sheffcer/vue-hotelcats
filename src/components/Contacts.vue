@@ -46,12 +46,12 @@
         </div>
         </div>
         <div class="contacts__map">
-            <div class="info" style="height: 15%">
+            <!-- <div class="info" style="height: 15%">
             <span>Center: {{ center }}</span>
             <span>Zoom: {{ zoom }}</span>
             <span>Bounds: {{ bounds }}</span>
-    </div>
-        <l-map :zoom="zoom" :center="center" width="320px" height="300px">
+            </div> -->
+        <l-map :zoom="zoom" :center="center" width="320px" height="300px" class="contacts__map">
             <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
             <l-marker :lat-lng="marker"></l-marker>
         </l-map>
@@ -70,10 +70,7 @@
 import Social from '@/components/Social.vue'
 import L from 'leaflet'
 import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
-// import "~leaflet/dist/images/marker-shadow.png"
-// import "~leaflet/dist/images/marker-icon.png"
-// import "./node_modules/leaflet/dist/images/marker-icon.png"
-// import { LMap } from 'vue2-leaflet'
+
 export default {
 name: 'Contacts',
 components: {
@@ -84,26 +81,25 @@ components: {
 },
 data () {
     return {
-        zoom:13,
-        center: L.latLng(47.413220, -1.219482),
+        zoom:14,
+        center: L.latLng(59.938851, 30.323058),
         url:'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
         attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-        marker: L.latLng(47.413220, -1.219482),
+        marker: L.latLng(59.938851, 30.323058),
         bounds: null
-        
         };
 },
 methods: {
     zoomUpdated (zoom) {
-      this.zoom = zoom;
+        this.zoom = zoom;
     },
     centerUpdated (center) {
-      this.center = center;
+        this.center = center;
     },
     boundsUpdated (bounds) {
-      this.bounds = bounds;
+        this.bounds = bounds;
     }
-  }
+}
 }
 </script>
 
@@ -140,6 +136,11 @@ methods: {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    max-height: 432px;
+    }
+
+    @media (min-width: $screen-lg) {
+    max-height: 490px;
     }
 
 }
@@ -167,17 +168,24 @@ methods: {
 
     @media (min-width: $screen-md) {
     margin: 0;
-    margin-top: -90px;
-    width: auto;
-    height: auto;
-    margin-bottom: -4px;
+    // margin-top: -90px;
+    width: 399px;
+    height: 522px;
+    margin-right: -15px;
+    margin-top: -45px;
+    // margin-bottom: -4px;
+    }
+
+    @media (min-width: $screen-lg) {
+    width: 798px;
+    height: 580px;
     }
 
 margin-top: 35px;
 min-height: 300px;
 width: 320px;
 height: 300px;
-margin-left: -15px;
+margin-left: -7.5px;
 }
 
 &__map-img {
@@ -207,6 +215,10 @@ font-style: normal;
 font-weight: bold;
 font-size: 28px;
 line-height: 33px;
+
+    @media (min-width: $screen-md) {
+        text-align: left;
+}
 }
 
 &__subtitle {
