@@ -46,29 +46,20 @@
         </div>
         </div>
         <div class="contacts__map">
-              <!-- <l-map ref="myMap" class="contacts__map-img"> </l-map> -->
-              <!-- <div style="height: 350px;"> -->
-    <!-- <div class="info" style="height: 15%">
-      <span>Center: {{ center }}</span>
-      <span>Zoom: {{ zoom }}</span>
-      <span>Bounds: {{ bounds }}</span>
-    </div> -->
-    <!-- <l-map
-      style="height: 80%; width: 320px"
-      :zoom="zoom"
-      :center="center"
-      @update:zoom="zoomUpdated"
-      @update:center="centerUpdated"
-      @update:bounds="boundsUpdated"
-    > -->
-      <!-- <l-tile-layer :url="url"></l-tile-layer> -->
-    <!-- </l-map> -->
-  <!-- </div> -->
-        <picture class="contacts__map-img">
+            <div class="info" style="height: 15%">
+            <span>Center: {{ center }}</span>
+            <span>Zoom: {{ zoom }}</span>
+            <span>Bounds: {{ bounds }}</span>
+    </div>
+        <l-map :zoom="zoom" :center="center" width="320px" height="300px">
+            <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+            <l-marker :lat-lng="marker"></l-marker>
+        </l-map>
+        <!-- <picture class="contacts__map-img">
             <source media="(min-width: 1366px)" srcset="/img/map-desktop.jpg">
             <source media="(min-width: 768px)" srcset="/img/map-tablet.jpg">
             <img src="/img/map-mobile.jpg" alt="map">
-        </picture>
+        </picture> -->
         </div>
     </div>
     </div>
@@ -77,42 +68,42 @@
 
 <script>
 import Social from '@/components/Social.vue'
-// import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
+import L from 'leaflet'
+import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
+// import "~leaflet/dist/images/marker-shadow.png"
+// import "~leaflet/dist/images/marker-icon.png"
+// import "./node_modules/leaflet/dist/images/marker-icon.png"
 // import { LMap } from 'vue2-leaflet'
-// import {LMap} from 'vue2-leaflet'
 export default {
 name: 'Contacts',
 components: {
     Social,
-    // LMap,
-    // LTileLayer,
-    // LTileLayer,
-    // LMarker,
+    LMap,
+    LTileLayer,
+    LMarker,
 },
 data () {
     return {
-        url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        zoom: 16,
-        center: [59.926216, 30.325012],
+        zoom:13,
+        center: L.latLng(47.413220, -1.219482),
+        url:'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+        attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+        marker: L.latLng(47.413220, -1.219482),
         bounds: null
+        
         };
 },
 methods: {
     zoomUpdated (zoom) {
-        this.zoom = zoom;
+      this.zoom = zoom;
     },
     centerUpdated (center) {
-        this.center = center;
+      this.center = center;
     },
     boundsUpdated (bounds) {
-        this.bounds = bounds;
+      this.bounds = bounds;
     }
-},
-// mounted() {
-//     this.$nextTick(() => {
-//         this.$refs.myMap.mapObject.ANY_LEAFLET_MAP_METHOD();
-//     });
-//     },
+  }
 }
 </script>
 
@@ -121,6 +112,15 @@ methods: {
 @import "@/assets/sass/grid-mixins.scss";
 @import "@/assets/sass/variables.scss";
 // @import '/node_modules/leaflet/dist/leaflet.css';
+
+.leaflet-default-icon-path {
+    background-image: url(/img/marker-icon.png)!important;
+}
+
+.leaflet-default-shadow-path {
+    background-image: url(/img/marker-shadow.png)!important;
+}
+
 .contacts {
 
 @media (min-width: $screen-md) {
