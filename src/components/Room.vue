@@ -8,13 +8,17 @@
         <label class="field-select">
             <div class="field-select__select-wrap">
             <select v-model="selected" class="field-select__select" >
-                <option disabled value="">Выберите вариант</option>
-                <option>&#8593; По площади</option>
-                <option>&#8595; По площади</option>
+                <!-- <option disabled value="">Выберите вариант</option> -->
+                <!-- <option value="">&#8595; По цене</option>
                 <option>&#8593; По цене</option>
-                <option>&#8595; По цене</option>
+                <option>&#8593; По площади</option>
+                <option>&#8595; По площади</option> -->
+                <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.value">
+               {{ option.text }}
+                </option>
+                
             </select>
-            {{selected}}
+            <span>  {{ selected }}</span>
             </div>
         </label>
         </div>
@@ -105,7 +109,7 @@
                 <h2 class="room__title">{{room.title}}</h2>
                 <ul class="room__content-list">
                 <li>Размеры (ШхГхВ) {{room.size}}</li>
-                <li>Площадь - {{room.square}}</li>
+                <li>Площадь - {{room.square}} м2</li>
                 <li>Оснащение номера <span class="room__icons"><img v-for="(svg, index) in room.svgs" :key="index" v-bind:src="svg" v-bind:alt="svg.slice(4)"></span>
                 </li>
                 <li>Цена за сутки: <span>{{room.price}}₽</span></li>
@@ -126,14 +130,20 @@ name: 'Room',
 data () {
     return {
     sliderValue: 3,
-    selected: '',
+    selected: 'A',
+    options: [
+      { char: "&#8595;", text: ' Убывание цены', value: 'A' },
+      { char: "&#8593;", text: ' Возростание цены', value: 'B' },
+      { char: "&#8593;", text: ' Возр. площади', value: 'C' },
+      { char: "&#8595;", text: ' Убыв. площади', value: 'D' }
+    ],
     sorted: [],
     rooms: [
         {
             id: 4,
             title: 'Эконом',
             size: '90х100х180 см',
-            square:'0,63 м2',
+            square:'0.63',
             price: '100',
             img_mobile: 'img/room_04.png',
             img_tablet: 'img/room_04-tablet.png',
@@ -145,7 +155,7 @@ data () {
             id: 5,
             title: 'Эконом плюс',
             size: '90х100х180 см',
-            square: '0,9 м2',
+            square: '0.9',
             price: '200',
             img_mobile: 'img/room_05.png',
             img_tablet: 'img/room_05-tablet.png',
@@ -157,7 +167,7 @@ data () {
             id: 6,
             title: 'Комфорт',
             size: '100х125х180 см',
-            square: '1,13 м2',
+            square: '1.13',
             price: '250',
             img_mobile: 'img/room_06.png',
             img_tablet: 'img/room_06-tablet.png',
@@ -169,7 +179,7 @@ data () {
             id: 7,
             title: 'Сьют',
             size: '125х125х180 см',
-            square: '1,56 м2',
+            square: '1.56',
             price: '350',
             img_mobile: 'img/room_07.png',
             img_tablet: 'img/room_07-tablet.png',
@@ -181,7 +191,7 @@ data () {
             id: 8,
             title: 'Люкс',
             size: '160х160х180 см',
-            square: '2,56 м2',
+            square: '2.56',
             price: '500',
             img_mobile: 'img/room_08.png',
             img_tablet: 'img/room_08-tablet.png',
@@ -193,7 +203,7 @@ data () {
             id: 9,
             title: 'Супер-Люкс',
             size: '90х100х180 см',
-            square: '90х100х180 см',
+            square: '2.88',
             price: '600',
             img_mobile: 'img/room_09.png',
             img_tablet: 'img/room_09-tablet.png',
@@ -222,26 +232,51 @@ methods: {
     goTodetail: function (id) {
         this.$router.push({name:'detail', params:{Pid:id}})
         },
-    getByPrice: function (data) {
+    getByPriceDown: function (data) {
     return data.sort(function (a, b) {
         return b.price - a.price;
-    })
-}
+        })
+    },
+    getByPriceUp: function (data) {
+    return data.sort(function (a, b) {
+        return a.price - b.price;
+        })
+    }
 },
 computed: {
     sortedByPrice: function () {
         let sorted = this.rooms
-    //     return sorted.sort((a,b) => {
-    //         b.price - a.price
-    // })
-    return this.getByPrice(sorted)
+        // console.log(this.selected)
+        return this.getByPriceDown(sorted)
+    //    if (this.selected === 'A') {
+    //     return this.getByPriceDown(sorted)
+    //    }
 
-//     return this.sorted.filter(function(a, b) {
-//             b.price - a.price
-// })
-        // console.log(selected)
-    },
 
+//     switch (this.selected) {
+//         case 'A':
+//             return this.getByPriceDown(sorted)
+//         break
+//         case 'B':
+//             return this.getByPriceUp(sorted)
+//         break
+//         case 'C':
+//             console.log( 'Перебор' )
+//         break
+//         case 'D':
+//             console.log( 'Перебор' )
+//         break
+//         default:
+//             return this.getByPriceDown(sorted)
+// }
+
+    }
+
+},
+watch: {
+      selected(value) {
+          console.log(value)
+    }
 }
 }
 </script>
