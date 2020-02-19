@@ -22,9 +22,9 @@ $border-radius:               rem(3px) !default;
     vertical-align: middle;
     // width: 100%;
     // width: 154px;
-    width: 214px;
+    width: 160px;
     line-height: $line-height;
-    padding: 5px 25px;
+    padding: 5px 15px;
     font-size: inherit;
     font-family: inherit;
     // border: 1px solid $border-color;
@@ -37,7 +37,7 @@ $border-radius:               rem(3px) !default;
     background-image: url('/img/select-down.svg');
     background-repeat: no-repeat;
     // background-position: right 0.3em center;
-    background-position: 180px;
+    background-position: 133px;
     // background-size: 1.063em 0.688em;
 
     &[multiple] {
@@ -60,6 +60,12 @@ $border-radius:               rem(3px) !default;
     &[readonly] {
       cursor: default;
       background-color: $gray-lightest;
+    }
+
+    @media (min-width: $screen-md) {
+      padding: 5px 25px;
+      width: 180px;
+      background-position: 150px;
     }
   }
 

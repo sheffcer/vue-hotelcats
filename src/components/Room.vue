@@ -18,7 +18,7 @@
                 </option>
                 
             </select>
-            <span>  {{ selected }}</span>
+            <!-- <span>  {{ selected }}</span> -->
             </div>
         </label>
         </div>
@@ -97,8 +97,74 @@
             <button class="btn  btn--form-inverse">Сбросить фильтр</button>
         </div>
         </form>
-        <div class="room__grid">
-        <div class="room__item" v-for='room in sortedByPrice' v-bind:key='room.id'>
+        <div v-if="selected==='A'" class="room__grid">
+        <div class="room__item" v-for='room in sortedByPriceUp' v-bind:key='room.id'>
+            <div class="room__item-wrap">
+            <picture class="room__img-wrap" v-on:click="goTodetail(room.id)">
+                <source media="(min-width: 1366px)" v-bind:srcset="room.img_desktop">
+                <source media="(min-width: 768px)" v-bind:srcset="room.img_tablet">
+                <img v-bind:src="room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
+            </picture>
+            <div class="room__content">
+                <h2 class="room__title">{{room.title}}</h2>
+                <ul class="room__content-list">
+                <li>Размеры (ШхГхВ) {{room.size}}</li>
+                <li>Площадь - {{room.square}} м2</li>
+                <li>Оснащение номера <span class="room__icons"><img v-for="(svg, index) in room.svgs" :key="index" v-bind:src="svg" v-bind:alt="svg.slice(4)"></span>
+                </li>
+                <li>Цена за сутки: <span>{{room.price}}₽</span></li>
+                </ul>
+            </div>
+            <a href="" class="btn  btn--room" v-on:click.prevent="reserveRoom">Забронировать</a>
+            </div>
+        </div>
+        </div>
+        <div v-else-if="selected==='B'" class="room__grid">
+        <div class="room__item" v-for='room in sortedByPriceDown' v-bind:key='room.id'>
+            <div class="room__item-wrap">
+            <picture class="room__img-wrap" v-on:click="goTodetail(room.id)">
+                <source media="(min-width: 1366px)" v-bind:srcset="room.img_desktop">
+                <source media="(min-width: 768px)" v-bind:srcset="room.img_tablet">
+                <img v-bind:src="room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
+            </picture>
+            <div class="room__content">
+                <h2 class="room__title">{{room.title}}</h2>
+                <ul class="room__content-list">
+                <li>Размеры (ШхГхВ) {{room.size}}</li>
+                <li>Площадь - {{room.square}} м2</li>
+                <li>Оснащение номера <span class="room__icons"><img v-for="(svg, index) in room.svgs" :key="index" v-bind:src="svg" v-bind:alt="svg.slice(4)"></span>
+                </li>
+                <li>Цена за сутки: <span>{{room.price}}₽</span></li>
+                </ul>
+            </div>
+            <a href="" class="btn  btn--room" v-on:click.prevent="reserveRoom">Забронировать</a>
+            </div>
+        </div>
+        </div>
+        <div v-else-if="selected==='C'" class="room__grid">
+        <div class="room__item" v-for='room in sortedBySquareUp' v-bind:key='room.id'>
+            <div class="room__item-wrap">
+            <picture class="room__img-wrap" v-on:click="goTodetail(room.id)">
+                <source media="(min-width: 1366px)" v-bind:srcset="room.img_desktop">
+                <source media="(min-width: 768px)" v-bind:srcset="room.img_tablet">
+                <img v-bind:src="room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
+            </picture>
+            <div class="room__content">
+                <h2 class="room__title">{{room.title}}</h2>
+                <ul class="room__content-list">
+                <li>Размеры (ШхГхВ) {{room.size}}</li>
+                <li>Площадь - {{room.square}} м2</li>
+                <li>Оснащение номера <span class="room__icons"><img v-for="(svg, index) in room.svgs" :key="index" v-bind:src="svg" v-bind:alt="svg.slice(4)"></span>
+                </li>
+                <li>Цена за сутки: <span>{{room.price}}₽</span></li>
+                </ul>
+            </div>
+            <a href="" class="btn  btn--room" v-on:click.prevent="reserveRoom">Забронировать</a>
+            </div>
+        </div>
+        </div>
+        <div v-else-if="selected==='D'" class="room__grid">
+        <div class="room__item" v-for='room in sortedBySquareDown' v-bind:key='room.id'>
             <div class="room__item-wrap">
             <picture class="room__img-wrap" v-on:click="goTodetail(room.id)">
                 <source media="(min-width: 1366px)" v-bind:srcset="room.img_desktop">
@@ -132,10 +198,10 @@ data () {
     sliderValue: 3,
     selected: 'A',
     options: [
-      { char: "&#8595;", text: ' Убывание цены', value: 'A' },
-      { char: "&#8593;", text: ' Возростание цены', value: 'B' },
-      { char: "&#8593;", text: ' Возр. площади', value: 'C' },
-      { char: "&#8595;", text: ' Убыв. площади', value: 'D' }
+        { char: "&#8593;", text: ' Возр. цены', value: 'A' },
+        { char: "&#8595;", text: ' Убыв. цены', value: 'B' },
+        { char: "&#8593;", text: ' Возр. площади', value: 'C' },
+        { char: "&#8595;", text: ' Убыв. площади', value: 'D' }
     ],
     sorted: [],
     rooms: [
@@ -241,42 +307,58 @@ methods: {
     return data.sort(function (a, b) {
         return a.price - b.price;
         })
+    },
+    getBySquareUp: function (data) {
+    return data.sort(function (a, b) {
+        return a.square - b.square;
+        })
+    },
+    getBySquareDown: function (data) {
+    return data.sort(function (a, b) {
+        return b.square - a.square;
+        })
     }
 },
 computed: {
-    sortedByPrice: function () {
+    sortedByPriceDown: function () {
         let sorted = this.rooms
-        // console.log(this.selected)
         return this.getByPriceDown(sorted)
-    //    if (this.selected === 'A') {
-    //     return this.getByPriceDown(sorted)
-    //    }
-
-
-//     switch (this.selected) {
-//         case 'A':
-//             return this.getByPriceDown(sorted)
-//         break
-//         case 'B':
-//             return this.getByPriceUp(sorted)
-//         break
-//         case 'C':
-//             console.log( 'Перебор' )
-//         break
-//         case 'D':
-//             console.log( 'Перебор' )
-//         break
-//         default:
-//             return this.getByPriceDown(sorted)
-// }
-
+    },
+    sortedByPriceUp: function () {
+        let sorted = this.rooms
+        return this.getByPriceUp(sorted)
+    },
+    sortedBySquareUp: function () {
+        let sorted = this.rooms
+        return this.getBySquareUp(sorted)
+    },
+    sortedBySquareDown: function () {
+        let sorted = this.rooms
+        return this.getBySquareDown(sorted)
     }
-
 },
 watch: {
-      selected(value) {
-          console.log(value)
-    }
+        selected(value) {
+            switch (value) {
+                case 'A':
+                    // return this.getByPriceDown(sorted)
+                    console.log(value)
+                break
+                case 'B':
+                    console.log(value)
+                    // return this.sortedByPrice()
+                break
+                case 'C':
+                    console.log(value)
+                break
+                case 'D':
+                    console.log(value)
+                break
+                default:
+                    // return this.getByPriceDown(sorted)
+                    console.log('A default')
+            }
+        }
 }
 }
 </script>
