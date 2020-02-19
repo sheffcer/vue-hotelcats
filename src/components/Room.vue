@@ -108,7 +108,7 @@
                 <li>Площадь - {{room.square}}</li>
                 <li>Оснащение номера <span class="room__icons"><img v-for="(svg, index) in room.svgs" :key="index" v-bind:src="svg" v-bind:alt="svg.slice(4)"></span>
                 </li>
-                <li>Цена за сутки: <span>{{room.price}}</span></li>
+                <li>Цена за сутки: <span>{{room.price}}₽</span></li>
                 </ul>
             </div>
             <a href="" class="btn  btn--room" v-on:click.prevent="reserveRoom">Забронировать</a>
@@ -127,13 +127,14 @@ data () {
     return {
     sliderValue: 3,
     selected: '',
+    sorted: [],
     rooms: [
         {
             id: 4,
             title: 'Эконом',
             size: '90х100х180 см',
             square:'0,63 м2',
-            price: '100₽',
+            price: '100',
             img_mobile: 'img/room_04.png',
             img_tablet: 'img/room_04-tablet.png',
             img_desktop: 'img/room_04-desktop.png',
@@ -145,7 +146,7 @@ data () {
             title: 'Эконом плюс',
             size: '90х100х180 см',
             square: '0,9 м2',
-            price: '200₽',
+            price: '200',
             img_mobile: 'img/room_05.png',
             img_tablet: 'img/room_05-tablet.png',
             img_desktop: 'img/room_05-desktop.png',
@@ -157,7 +158,7 @@ data () {
             title: 'Комфорт',
             size: '100х125х180 см',
             square: '1,13 м2',
-            price: '250₽',
+            price: '250',
             img_mobile: 'img/room_06.png',
             img_tablet: 'img/room_06-tablet.png',
             img_desktop: 'img/room_06-desktop.png',
@@ -169,7 +170,7 @@ data () {
             title: 'Сьют',
             size: '125х125х180 см',
             square: '1,56 м2',
-            price: '350₽',
+            price: '350',
             img_mobile: 'img/room_07.png',
             img_tablet: 'img/room_07-tablet.png',
             img_desktop: 'img/room_07-desktop.png',
@@ -181,7 +182,7 @@ data () {
             title: 'Люкс',
             size: '160х160х180 см',
             square: '2,56 м2',
-            price: '500₽',
+            price: '500',
             img_mobile: 'img/room_08.png',
             img_tablet: 'img/room_08-tablet.png',
             img_desktop: 'img/room_08-desktop.png',
@@ -193,7 +194,7 @@ data () {
             title: 'Супер-Люкс',
             size: '90х100х180 см',
             square: '90х100х180 см',
-            price: '600₽',
+            price: '600',
             img_mobile: 'img/room_09.png',
             img_tablet: 'img/room_09-tablet.png',
             img_desktop: 'img/room_09-desktop.png',
@@ -220,14 +221,24 @@ methods: {
         },
     goTodetail: function (id) {
         this.$router.push({name:'detail', params:{Pid:id}})
-        }
-    },
+        },
+    getByPrice: function (data) {
+    return data.sort(function (a, b) {
+        return b.price - a.price;
+    })
+}
+},
 computed: {
     sortedByPrice: function () {
-        let selected = this.rooms
-        return selected.sort((a,b) => {
-           b.price - a.price
-    })
+        let sorted = this.rooms
+    //     return sorted.sort((a,b) => {
+    //         b.price - a.price
+    // })
+    return this.getByPrice(sorted)
+
+//     return this.sorted.filter(function(a, b) {
+//             b.price - a.price
+// })
         // console.log(selected)
     },
 
