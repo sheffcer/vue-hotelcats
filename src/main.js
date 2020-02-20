@@ -5,8 +5,10 @@ import Vuelidate from 'vuelidate'
 import 'leaflet/dist/leaflet.css'
 import "leaflet/dist/images/marker-shadow.png"
 import "leaflet/dist/images/marker-icon.png"
+import VTooltip from 'v-tooltip'
 // import './node_modules/leaflet/dist/leaflet.css'
 Vue.use(Vuelidate)
+Vue.use(VTooltip)
 
 Vue.config.productionTip = false
 

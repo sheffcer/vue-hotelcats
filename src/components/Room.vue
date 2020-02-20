@@ -110,12 +110,22 @@
                 <ul class="room__content-list">
                 <li>Размеры (ШхГхВ) {{room.size}}</li>
                 <li>Площадь - {{room.square}} м2</li>
-                <li>Оснащение номера <span class="room__icons"><img v-for="(svg, index) in room.svgs" :key="index" v-bind:src="svg" v-bind:alt="svg.slice(4)"></span>
+                <li>Оснащение номера <span class="room__icons">
+                    <img
+                    v-for="(svg, index) in room.svgs" :key="index" 
+                    v-bind:src="svg" v-bind:alt="svg.slice(4)"
+                    v-tooltip.top-center="room.tooltips"
+                    >
+                    </span>
                 </li>
                 <li>Цена за сутки: <span>{{room.price}}₽</span></li>
                 </ul>
             </div>
-            <a href="" class="btn  btn--room" v-on:click.prevent="reserveRoom">Забронировать</a>
+            <a
+                href="" class="btn  btn--room"
+                v-on:click.prevent="reserveRoom"
+                v-tooltip.top-center="msg"
+            >Забронировать</a>
             </div>
         </div>
         </div>
@@ -191,12 +201,18 @@
 </template>
 
 <script>
+// import VTooltip from 'v-tooltip'
+
 export default {
 name: 'Room',
+// components: {
+//     VTooltip
+// },
 data () {
     return {
     sliderValue: 3,
     selected: 'A',
+    msg: 'Бронируй скорее)',
     options: [
         { char: "&#8593;", text: ' Возр. цены', value: 'A' },
         { char: "&#8595;", text: ' Убыв. цены', value: 'B' },
