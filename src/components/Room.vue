@@ -111,10 +111,15 @@
                 <li>Размеры (ШхГхВ) {{room.size}}</li>
                 <li>Площадь - {{room.square}} м2</li>
                 <li>Оснащение номера <span class="room__icons">
-                    <img
+                    <!-- <img
                     v-for="(svg, index) in room.svgs" :key="index" 
                     v-bind:src="svg" v-bind:alt="svg.slice(4)"
                     v-tooltip.top-center="room.tooltips"
+                    > -->
+                    <img
+                    v-for="(svg, index) in room.svgs" :key="index" 
+                    v-bind:src="svg" v-bind:alt="svg.slice(4)"
+                    v-tooltip.top-center="room.tooltips[index]"
                     >
                     </span>
                 </li>
