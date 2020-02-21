@@ -10,9 +10,24 @@
             <source media="(min-width: 768px)" v-bind:srcset="'/' + room.img_tablet">
             <img v-bind:src="'/' + room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
         </picture> -->
-        <div class="detail__img-wrap">
+        <!-- <div class="detail__img-wrap">
         <img v-bind:src="'/' + room.detail" v-bind:alt="room.detail.slice(4)">
-        </div>
+        </div> -->
+        <div class="detail__img-wrap">
+        <agile class="main" ref="main" :options="options1" :as-nav-for="asNavFor1">
+            <div class="slide" v-for="(thumb, index) in room.thumbs" v-bind:key="index" v-bind:class="`slide--${index}`">
+                <img :src="'/' + thumb"/>
+            </div>
+        </agile>
+        <agile class="thumbnails" ref="thumbnails" :options="options2" :as-nav-for="asNavFor2">
+            <div class="slide slide--thumbniail" v-for="(thumb, index) in room.thumbs" v-bind:key="index" v-bind:class="`slide--${index}`" @click="$refs.thumbnails.goTo(index)">
+                <img :src="'/' + thumb"/>
+            </div>
+        <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
+        <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
+        </agile>
+         </div>
+        <!-- <agile ref="thumbnails" :as-nav-for="[$refs.main]" :slides-to-show="4" autoplay>...</agile> -->
         <!-- <h2>{{room.title}}</h2> -->
         <div class="detail__wrap">
         <div class="detail__content">
@@ -50,12 +65,15 @@
 <script>
 import RoomSlider from '@/components/RoomSlider.vue'
 import Contacts from '@/components/Contacts.vue'
+import { VueAgile } from 'vue-agile'
 export default {
 name: 'Detail',
 components: {
     RoomSlider,
-    Contacts
+    Contacts,
+    agile: VueAgile
 },
+
 data () {
     return {
         id:this.$route.params.Pid,
@@ -72,7 +90,8 @@ data () {
             img_desktop: 'img/room_04-desktop.png',
             svgs: ['img/icon_01.svg'],
             tooltips: ['Пустой номер'],
-            detail: 'img/room_04-detail_desktop.jpg'
+            detail: 'img/room_04-detail_desktop.jpg',
+            thumbs: ['img/room_04-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg']
         },
         {
             id: 5,
@@ -85,7 +104,8 @@ data () {
             img_desktop: 'img/room_05-desktop.png',
             svgs: ['img/icon_02.svg', 'img/icon_03.svg'],
             tooltips: ['Лежак', 'Когтеточка'],
-            detail: 'img/room_05-detail_desktop.jpg'
+            detail: 'img/room_05-detail_desktop.jpg',
+            thumbs: ['img/room_05-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg']
         },
         {
             id: 6,
@@ -98,7 +118,8 @@ data () {
             img_desktop: 'img/room_06-desktop.png',
             svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg'],
             tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс'],
-            detail: 'img/room_06-detail_desktop.jpg'
+            detail: 'img/room_06-detail_desktop.jpg',
+            thumbs: ['img/room_06-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg']
         },
         {
             id: 7,
@@ -111,7 +132,8 @@ data () {
             img_desktop: 'img/room_07-desktop.png',
             svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg'],
             tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс'],
-            detail: 'img/room_07-detail_desktop.jpg'
+            detail: 'img/room_07-detail_desktop.jpg',
+            thumbs: ['img/room_07-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg']
         },
         {
             id: 8,
@@ -124,7 +146,8 @@ data () {
             img_desktop: 'img/room_08-desktop.png',
             svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg', 'img/icon_05.svg'],
             tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс', 'Домик'],
-            detail: 'img/room_08-detail_desktop.jpg'
+            detail: 'img/room_08-detail_desktop.jpg',
+            thumbs: ['img/room_08-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg']
         },
         {
             id: 9,
@@ -137,11 +160,40 @@ data () {
             img_desktop: 'img/room_09-desktop.png',
             svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg', 'img/icon_05.svg'],
             tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс', 'Домик'],
-            detail: 'img/room_09-detail_desktop.jpg'
+            detail: 'img/room_09-detail_desktop.jpg',
+            thumbs: ['img/room_09-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg']
         },
 
 
         ],
+asNavFor1: [],
+asNavFor2: [],
+options1: {
+	dots: false,
+	fade: true,
+	navButtons: false
+	},
+options2: {
+	autoplay: true,
+	centerMode: true,
+	dots: false,
+	navButtons: false,
+	slidesToShow: 3,
+	responsive: [
+        {
+            breakpoint: 600,
+            settings: {
+            slidesToShow: 3
+            }
+            },
+            {
+            breakpoint: 1000,
+            settings: {
+                navButtons: true
+                    }
+                }
+            ]
+},
 
         }
     },
@@ -158,13 +210,18 @@ methods: {
                 modal.style.cssText = 'display:none';
             })
         }
-}
+},
+mounted () {
+		this.asNavFor1.push(this.$refs.thumbnails)
+		this.asNavFor2.push(this.$refs.main)
+	}
 }
 </script>
 
 <style lang="scss">
 @import "@/assets/sass/grid-mixins.scss";
 @import "@/assets/sass/variables.scss";
+@import "@/assets/sass/agile.scss";
 
 .detail {
     margin-top: 0;
