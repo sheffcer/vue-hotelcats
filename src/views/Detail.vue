@@ -20,7 +20,7 @@
             </div>
         </agile>
         <agile class="thumbnails" ref="thumbnails" :options="options2" :as-nav-for="asNavFor2">
-            <div class="slide slide--thumbniail" v-for="(thumb, index) in room.thumbs" v-bind:key="index" v-bind:class="`slide--${index}`" @click="$refs.thumbnails.goTo(index)">
+            <div class="slide slide--thumbniail" v-for="(thumb, index) in room.thumbs" v-bind:key="index" v-bind:class="`slide--${index}`" click="$refs.thumbnails.goTo(index)">
                 <img :src="'/' + thumb"/>
             </div>
         <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
@@ -73,7 +73,6 @@ components: {
     Contacts,
     agile: VueAgile
 },
-
 data () {
     return {
         id:this.$route.params.Pid,
@@ -166,36 +165,37 @@ data () {
 
 
         ],
+
 asNavFor1: [],
 asNavFor2: [],
 options1: {
-	dots: false,
-	fade: true,
-	navButtons: false
-	},
+    dots: false,
+    fade: true,
+    navButtons: false
+    },
 options2: {
-	autoplay: true,
-	centerMode: true,
-	dots: false,
-	navButtons: false,
-	slidesToShow: 3,
-	responsive: [
+    autoplay: true,
+    autoplaySpeed: 5000,
+    centerMode: true,
+    dots: false,
+    navButtons: false,
+    slidesToShow: 3,
+    responsive: [
         {
             breakpoint: 768,
             settings: {
             slidesToShow: 3
             }
-            },
-            {
-            breakpoint: 1366,
-            settings: {
-                navButtons: true
-                    }
-                }
-            ]
-},
-
+        },
+        {
+        breakpoint: 1366,
+        settings: {
+        navButtons: true
         }
+    }
+    ]
+},
+}
     },
 methods: {
     reserveRoom: () => {
@@ -213,7 +213,8 @@ methods: {
 },
 mounted () {
 		this.asNavFor1.push(this.$refs.thumbnails)
-		this.asNavFor2.push(this.$refs.main)
+        this.asNavFor2.push(this.$refs.main)
+        // console.dir(this.rooms)
 	}
 }
 </script>
@@ -389,4 +390,23 @@ mounted () {
 
         }
     }
+
+.thumbnails {
+    margin: 0 -5px;
+    width: calc(100% + 10px);
+}
+
+.slide {
+    & img {
+        // @media (min-width: $screen-md) {
+        //     min-width: 354px;
+        // }
+
+        // @media (min-width: $screen-md) {
+        //     min-width: 500px;
+        // }
+    }
+}
+
+
 </style>
