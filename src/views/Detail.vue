@@ -14,7 +14,7 @@
         <img v-bind:src="'/' + room.detail" v-bind:alt="room.detail.slice(4)">
         </div> -->
         <div class="detail__img-wrap">
-        <agile class="main" ref="main" :options="options1" :as-nav-for="asNavFor1">
+        <agile class="main" ref="carousel" :options="options1" :as-nav-for="asNavFor1">
             <div class="slide" v-for="(thumb, index) in room.thumbs" v-bind:key="index" v-bind:class="`slide--${index}`">
                 <img :src="'/' + thumb"/>
             </div>
@@ -181,13 +181,13 @@ options2: {
 	slidesToShow: 3,
 	responsive: [
         {
-            breakpoint: 600,
+            breakpoint: 768,
             settings: {
             slidesToShow: 3
             }
             },
             {
-            breakpoint: 1000,
+            breakpoint: 1366,
             settings: {
                 navButtons: true
                     }
