@@ -5,11 +5,14 @@
     <div class="" v-for="(room,index) in rooms" :key="index">
      <div class="detail__item" v-if="id == room.id">
        <div class="detail__item-wrap">
-       <picture class="detail__img-wrap">
+       <!-- <picture class="detail__img-wrap">
             <source media="(min-width: 1366px)" v-bind:srcset="'/' + room.img_desktop">
             <source media="(min-width: 768px)" v-bind:srcset="'/' + room.img_tablet">
             <img v-bind:src="'/' + room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
-        </picture>
+        </picture> -->
+        <div class="detail__img-wrap">
+        <img v-bind:src="'/' + room.detail" v-bind:alt="room.detail.slice(4)">
+        </div>
         <!-- <h2>{{room.title}}</h2> -->
         <div class="detail__wrap">
         <div class="detail__content">
@@ -68,7 +71,8 @@ data () {
             img_tablet: 'img/room_04-tablet.png',
             img_desktop: 'img/room_04-desktop.png',
             svgs: ['img/icon_01.svg'],
-            tooltips: ['Пустой номер']
+            tooltips: ['Пустой номер'],
+            detail: 'img/room_04-detail_desktop.jpg'
         },
         {
             id: 5,
@@ -80,7 +84,8 @@ data () {
             img_tablet: 'img/room_05-tablet.png',
             img_desktop: 'img/room_05-desktop.png',
             svgs: ['img/icon_02.svg', 'img/icon_03.svg'],
-            tooltips: ['Лежак', 'Когтеточка']
+            tooltips: ['Лежак', 'Когтеточка'],
+            detail: 'img/room_05-detail_desktop.jpg'
         },
         {
             id: 6,
@@ -92,7 +97,8 @@ data () {
             img_tablet: 'img/room_06-tablet.png',
             img_desktop: 'img/room_06-desktop.png',
             svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg'],
-            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс']
+            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс'],
+            detail: 'img/room_06-detail_desktop.jpg'
         },
         {
             id: 7,
@@ -104,7 +110,8 @@ data () {
             img_tablet: 'img/room_07-tablet.png',
             img_desktop: 'img/room_07-desktop.png',
             svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg'],
-            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс']
+            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс'],
+            detail: 'img/room_07-detail_desktop.jpg'
         },
         {
             id: 8,
@@ -116,7 +123,8 @@ data () {
             img_tablet: 'img/room_08-tablet.png',
             img_desktop: 'img/room_08-desktop.png',
             svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg', 'img/icon_05.svg'],
-            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс', 'Домик']
+            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс', 'Домик'],
+            detail: 'img/room_08-detail_desktop.jpg'
         },
         {
             id: 9,
@@ -128,7 +136,8 @@ data () {
             img_tablet: 'img/room_09-tablet.png',
             img_desktop: 'img/room_09-desktop.png',
             svgs: ['img/icon_02.svg', 'img/icon_03.svg', 'img/icon_04.svg', 'img/icon_05.svg'],
-            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс', 'Домик']
+            tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс', 'Домик'],
+            detail: 'img/room_09-detail_desktop.jpg'
         },
 
 
@@ -203,6 +212,10 @@ methods: {
         @media (min-width: $screen-lg) {
             justify-content: flex-start;
         }
+
+    //     & img {
+    //         border-radius: 10px;
+    //     }
     }
 
     &__wrap {
@@ -212,8 +225,18 @@ methods: {
     }
 
     &__img-wrap {
+
+        @media (min-width: $screen-md) {
+            max-width: 354px;
+        }
+        
         @media (min-width: $screen-lg) {
             margin-right: 100px;
+            max-width: 500px;
+        }
+
+        & img {
+            border-radius: 10px;
         }
     }
 
