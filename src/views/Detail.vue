@@ -14,7 +14,8 @@
         <img v-bind:src="'/' + room.detail" v-bind:alt="room.detail.slice(4)">
         </div> -->
         <div class="detail__img-wrap">
-        <agile class="main" ref="carousel" :options="options1" :as-nav-for="asNavFor1">
+          <!-- <lingallery  :iid.sync="room.items.id" v-bind:key="room.items"/> -->
+        <agile class="main" ref="main" :options="options1" :as-nav-for="asNavFor1">
             <div class="slide" v-for="(thumb, index) in room.thumbs" v-bind:key="index" v-bind:class="`slide--${index}`">
                 <img :src="'/' + thumb"/>
             </div>
@@ -66,12 +67,15 @@
 import RoomSlider from '@/components/RoomSlider.vue'
 import Contacts from '@/components/Contacts.vue'
 import { VueAgile } from 'vue-agile'
+// import Lingallery from 'lingallery'
 export default {
 name: 'Detail',
+thumbs: [],
 components: {
     RoomSlider,
     Contacts,
-    agile: VueAgile
+    agile: VueAgile,
+    // Lingallery
 },
 data () {
     return {
@@ -90,8 +94,19 @@ data () {
             svgs: ['img/icon_01.svg'],
             tooltips: ['Пустой номер'],
             detail: 'img/room_04-detail_desktop.jpg',
-            thumbs: ['img/room_04-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg']
-        },
+            thumbs: ['img/room_04-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg'],
+            items: [{
+                id:'someid1',
+                src: 'img/room_04-detail_desktop.jpg',
+                thumbnail: 'img/room_04-detail_desktop_thumb.jpg',
+                caption: 'Some Caption'
+            },
+            {
+                id:'someid1',
+                src: 'img/house.jpg',
+                thumbnail: 'img/house_thumb.jpg'
+            }
+            ]},
         {
             id: 5,
             title: 'Эконом плюс',
@@ -212,10 +227,18 @@ methods: {
         }
 },
 mounted () {
-		this.asNavFor1.push(this.$refs.thumbnails)
-        this.asNavFor2.push(this.$refs.main)
-        // console.dir(this.rooms)
-	}
+    let curId = this.id
+    console.log(curId)
+    this.thumbs = this.rooms[curId - 4].thumbs
+    for (let i = 0; i < this.thumbs.lenght; i++) {
+        this.thumbs.push(`${this.thumbs[i]}`)
+    }
+    // this.thumbs.push("img/room_05-detail_desktop.jpg")
+    this.asNavFor1.push(this.$refs.thumbnails)
+    this.asNavFor2.push(this.$refs.main)
+    console.dir(this.thumbs)
+    // this.reload()
+}
 }
 </script>
 
