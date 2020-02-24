@@ -295,7 +295,17 @@ mounted () {
 
         & img {
             border-radius: 10px;
+            width: 290px;
+
+            @media (min-width: $screen-md) {
+            width: 354px!important;
+            }
+
+            @media (min-width: $screen-lg) {
+            width: 500px!important;
+            }
         }
+        // }
     }
 
     &__content-list {
