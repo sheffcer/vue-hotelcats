@@ -15,7 +15,7 @@
         </div> -->
         <div class="detail__img-wrap">
           <!-- <lingallery  :iid.sync="room.items.id" v-bind:key="room.items"/> -->
-        <agile class="main" ref="main" :options="options1" :as-nav-for="asNavFor1">
+        <agile class="main" ref="carousel" :options="options1" :as-nav-for="asNavFor1">
             <div class="slide" v-for="(thumb, index) in room.thumbs" v-bind:key="index" v-bind:class="`slide--${index}`">
                 <img :src="'/' + thumb"/>
             </div>
@@ -70,7 +70,7 @@ import { VueAgile } from 'vue-agile'
 // import Lingallery from 'lingallery'
 export default {
 name: 'Detail',
-thumbs: [],
+// thumbs: [],
 components: {
     RoomSlider,
     Contacts,
@@ -81,6 +81,8 @@ data () {
     return {
         id:this.$route.params.Pid,
         title:"details",
+        curThumbs: [],
+        thumbs: [],
         rooms: [
         {
             id: 4,
@@ -229,14 +231,15 @@ methods: {
 mounted () {
     let curId = this.id
     console.log(curId)
-    this.thumbs = this.rooms[curId - 4].thumbs
-    for (let i = 0; i < this.thumbs.lenght; i++) {
-        this.thumbs.push(`${this.thumbs[i]}`)
+    this.curThumbs = this.rooms[curId - 4].thumbs
+    for (let i = 0; i < this.curThumbs.lenght; i++) {
+        this.thumbs.push(`${this.curThumbs[i]}`)
     }
     // this.thumbs.push("img/room_05-detail_desktop.jpg")
     this.asNavFor1.push(this.$refs.thumbnails)
-    this.asNavFor2.push(this.$refs.main)
+    this.asNavFor2.push(this.$refs.carousel)
     console.dir(this.thumbs)
+    console.dir(this.curThumbs)
     // this.reload()
 }
 }
