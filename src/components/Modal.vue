@@ -1,7 +1,6 @@
 <template>
-<div class="modal-cart__inner">
   <div class="modal-cart  modal-cart--form">
-    
+    <div class="modal-cart__inner">
     <div class="modal-cart__shadow"></div>
     <!-- <div class="modal-cart__inner"> -->
       <!-- <form action=""> -->
@@ -328,12 +327,19 @@ methods: {
       min-height: 629px;
       max-width: 502px;
       top: 15%;
-      left: 25%;
+      left: 23%;
     }
+
+    @media (min-width: 1000px) {
+      min-height: 649px;
+      max-width: 570px;
+      left: 30%;
+    }
+
     @media (min-width: $screen-lg) {
       min-height: 649px;
       max-width: 570px;
-      left: 25%;
+      left: 35%;
     }
   }
 
