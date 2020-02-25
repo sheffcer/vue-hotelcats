@@ -1,10 +1,12 @@
 <template>
+<div class="modal-cart__inner">
   <div class="modal-cart  modal-cart--form">
+    
     <div class="modal-cart__shadow"></div>
-    <div class="modal-cart__inner">
-      <form action="">
+    <!-- <div class="modal-cart__inner"> -->
+      <!-- <form action=""> -->
         <div class="modal-cart__content  modal-cart__content--form">
-
+        <form action="">
           <h2 class="modal-cart__title modal-cart__title--form">Забронировать номер</h2>
           <div class="fields-group  fields-group--modal">
             <label class="field-text  field-text--modal"
@@ -105,8 +107,9 @@
           <p class="typo__p" v-if="submitStatus === 'OK'">Спасибо за заявку!</p>
           <p class="typo__p" v-if="submitStatus === 'ERROR'">Пожалуйста, заполните форму правильно.</p>
           <p class="typo__p" v-if="submitStatus === 'PENDING'">Отправка...</p>
+          </form>
         </div>
-      </form>
+      <!-- </form> -->
     </div>
     </div>
 
@@ -313,6 +316,7 @@ methods: {
     }
     &--second {
       padding-bottom: 25px;
+      min-height: 0!important;
     }
 
     & button {

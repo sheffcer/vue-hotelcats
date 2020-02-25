@@ -4,13 +4,15 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/rooms">Rooms</router-link>
     </div> -->
+    <Modal/>
+    <ModalSecond/>
     <PageHeader/>
     <transition name="moveInUp">
     <router-view/>
     </transition>
     <PageFooter/>
-    <Modal/>
-    <ModalSecond/>
+    <!-- <Modal/>
+    <ModalSecond/> -->
   </div>
 </template>
 

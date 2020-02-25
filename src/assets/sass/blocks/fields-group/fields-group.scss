@@ -46,12 +46,24 @@
 }
 
 &__wrap {
+  padding-left: 10px;
+  padding-right: 10px;
   min-width: 260px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 30px!important;
+
+  @media (min-width: $screen-md) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media (min-width: $screen-lg) {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
 }
 
 
