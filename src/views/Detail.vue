@@ -69,7 +69,7 @@ import Contacts from '@/components/Contacts.vue'
 import { VueAgile } from 'vue-agile'
 // import Lingallery from 'lingallery'
 export default {
-name: 'Detail',
+name: 'detail',
 // thumbs: [],
 components: {
     RoomSlider,
