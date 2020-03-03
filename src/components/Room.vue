@@ -4,7 +4,11 @@
     <div class="room__header-wrap">
         <h3 class="room__header">Наши номера</h3>
         <div class="room__filters">
-        <button class="btn  btn--filter">Фильтры</button>
+        <button class="btn  btn--filter" v-on:click="show">Фильтры</button>
+        <FilterModal name="FilterModal"/>
+        <!-- <modal name="hello-world">
+            hello, world!
+        </modal> -->
         <label class="field-select">
             <div class="field-select__select-wrap">
             <select v-model="selected" class="field-select__select" >
@@ -237,14 +241,17 @@
 
 <script>
 // import VTooltip from 'v-tooltip'
+import FilterModal from '@/components/FilterModal.vue'
 
 export default {
 name: 'Room',
-// components: {
-//     VTooltip
-// },
+components: {
+    FilterModal
+},
 data () {
     return {
+    title: 'Спасибо за заявку',
+    text: 'Мы свяжемся с вами в ближайшее время',
     sliderValue: 3,
     selected: 'A',
     msg: 'Бронируй скорее)',
@@ -368,6 +375,12 @@ methods: {
     return data.sort(function (a, b) {
         return b.square - a.square;
         })
+    },
+    show () {
+    this.$modal.show('FilterModal');
+    },
+    hide () {
+    this.$modal.hide('FilterModal');
     }
 },
 computed: {
