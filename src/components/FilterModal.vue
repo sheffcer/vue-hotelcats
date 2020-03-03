@@ -1,14 +1,19 @@
 <template>
-<modal name="FilterModal" adaptive>
+<modal 
+  name="FilterModal" 
+  adaptive
+   width="290px"
+   heigh="0"
+  >
     <!-- <div class="modal-cart" > -->
     <!-- <div class="modal-cart__shadow"></div> -->
     <div class="modal__inner">
       <div class="modal__content  modal__content--filter">
         <h2 class="modal__title">{{title}}</h2>
-        <button class="modal__close" type="button" v-on:click="hide"></button>
+        <button class="modal__close" type="button" v-on:click="$modal.hide('FilterSecond')"></button>
         <p class="modal__text">{{text}}</p>
 
-        <button type="submit" class="btn  btn--modal" value="Ок" v-on:click="hide">Ок</button>
+        <button class="btn  btn--modal" v-on:click="$modal.hide('FilterSecond')">Ок</button>
       </div>
     </div>
   <!-- </div> -->

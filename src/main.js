@@ -11,7 +11,11 @@ import VModal from 'vue-js-modal'
 // import './node_modules/leaflet/dist/leaflet.css'
 Vue.use(Vuelidate)
 Vue.use(VTooltip)
-Vue.use(VModal)
+Vue.use(
+  VModal,
+  {dialog: true,
+  dynamic: true,
+})
 // Vue.use(VueAgile)
 
 Vue.config.productionTip = false
