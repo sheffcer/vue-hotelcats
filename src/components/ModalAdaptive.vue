@@ -34,27 +34,27 @@
             <div class="field-checkbox__title">Площадь</div>
             <div class="field-checkbox__input-wrap">
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox" checked>
+                <input class="field-checkbox__input" type="checkbox" value="0.63" v-model="selectedCheckbox">
                 <span class="field-checkbox__name-text">0,63 м2</span>
             </label>
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox">
-                <span class="field-checkbox__name-text">0,90 м2</span>
+                <input class="field-checkbox__input" type="checkbox" value="0.90" v-model="selectedCheckbox">
+                <span class="field-checkbox__name-text" >0,90 м2</span>
             </label>
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox" checked>
+                <input class="field-checkbox__input" type="checkbox" value="1.13" v-model="selectedCheckbox">
                 <span class="field-checkbox__name-text">1,13 м2</span>
             </label>
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox">
+                <input class="field-checkbox__input" type="checkbox" value="1.56" v-model="selectedCheckbox">
                 <span class="field-checkbox__name-text">1,56 м2</span>
             </label>
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox">
-                <span class="field-checkbox__name-text">2,56 м2</span>
+                <input class="field-checkbox__input" type="checkbox" v-model="selectedCheckbox">
+                <span class="field-checkbox__name-text" value="2.56">2,56 м2</span>
             </label>
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox" checked>
+                <input class="field-checkbox__input" type="checkbox" value="2.88" v-model="selectedCheckbox">
                 <span class="field-checkbox__name-text">2,88 м2</span>
             </label>
             </div>
@@ -88,6 +88,7 @@
             <button class="btn  btn--form">Применить</button>
             <button class="btn  btn--form-inverse">Сбросить фильтр</button>
         </div>
+        <span>Выбрано: {{selected}}</span>
         </form>
     </modal>
 </template>
@@ -105,6 +106,7 @@ props: {
 data() {
     return {
         // title: this.$parent.title
+        selectedCheckbox: []
     }
 },
 }
