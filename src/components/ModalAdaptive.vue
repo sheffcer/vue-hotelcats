@@ -120,6 +120,16 @@ data() {
     padding-left: 24px;
     padding-right: 24px;
 
+    @media (min-width: $screen-md) {
+        padding-left: 57px;
+        padding-right: 57px;
+    }
+
+     @media (min-width: $screen-lg) {
+        padding-left: 65px;
+        // padding-right: 70px;
+    }
+
     &__title {
         font-family: $font-family;
         font-style: normal;
@@ -145,12 +155,12 @@ data() {
     background: url("/img/menu-close.svg") no-repeat;
 
     @media (min-width: $screen-md) {
-        left: 460px;
+        left: 300px;
         top: 20px;
     }
 
     @media (min-width: $screen-lg) {
-        left: 525px;
+        left: 360px;
         top: 25px;
     }
   }
@@ -166,12 +176,12 @@ div.v--modal-box {
 
     @media (min-width: $screen-md) {
         // top: 300px!important;
-        width: 500px!important;
+        width: 332px!important;
         margin: 0 auto;
     }
 
     @media (min-width: $screen-lg) {
-        width: 650px!important;
+        width: 400px!important;
         margin: 0 auto;
     }
 
