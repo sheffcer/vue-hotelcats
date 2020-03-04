@@ -4,7 +4,9 @@
     <div class="room__header-wrap">
         <h3 class="room__header">Наши номера</h3>
         <div class="room__filters">
-        <button class="btn  btn--filter" v-on:click="show">Фильтры</button>
+        <!-- <button class="btn  btn--filter" v-on:click="show">Фильтры</button> -->
+        <button class="btn  btn--filter" @click="$modal.show('adaptive')">Фильтры</button>
+        <ModalAdaptive />
         <FilterModal name="FilterModal"/>
         <!-- <modal name="hello-world">
             hello, world!
@@ -242,11 +244,13 @@
 <script>
 // import VTooltip from 'v-tooltip'
 import FilterModal from '@/components/FilterModal.vue'
+import ModalAdaptive    from '@/components/ModalAdaptive.vue'
 
 export default {
 name: 'Room',
 components: {
-    FilterModal
+    FilterModal,
+    ModalAdaptive
 },
 data () {
     return {
@@ -377,10 +381,10 @@ methods: {
         })
     },
     show () {
-    this.$modal.show('FilterModal');
+    this.$modal.show('adaptive');
     },
     hide () {
-    this.$modal.hide('FilterModal');
+    this.$modal.hide('adaptive');
     }
 },
 computed: {
