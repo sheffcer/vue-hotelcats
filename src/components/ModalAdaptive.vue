@@ -50,8 +50,8 @@
                 <span class="field-checkbox__name-text">1,56 м2</span>
             </label>
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox" v-model="selectedCheckbox">
-                <span class="field-checkbox__name-text" value="2.56">2,56 м2</span>
+                <input class="field-checkbox__input" type="checkbox" value="2.56" v-model="selectedCheckbox">
+                <span class="field-checkbox__name-text">2,56 м2</span>
             </label>
             <label class="field-checkbox__name">
                 <input class="field-checkbox__input" type="checkbox" value="2.88" v-model="selectedCheckbox">
@@ -63,23 +63,23 @@
             <div class="field-checkbox__title">Оснащение</div>
             <div class="field-checkbox__input-wrap">
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox">
+                <input class="field-checkbox__input" type="checkbox" value="Пустой номер" v-model="selectedCheckbox">
                 <span class="field-checkbox__name-text">Пустой номер</span>
             </label>
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox" checked>
+                <input class="field-checkbox__input" type="checkbox" value="Лежак" v-model="selectedCheckbox">
                 <span class="field-checkbox__name-text">Лежак</span>
             </label>
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox">
+                <input class="field-checkbox__input" type="checkbox" value="Когтеточка" v-model="selectedCheckbox">
                 <span class="field-checkbox__name-text">Когтеточка</span>
             </label>
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox" checked>
+                <input class="field-checkbox__input" type="checkbox" value="Игровой-комплекс" v-model="selectedCheckbox">
                 <span class="field-checkbox__name-text">Игровой-комплекс</span>
             </label>
             <label class="field-checkbox__name">
-                <input class="field-checkbox__input" type="checkbox">
+                <input class="field-checkbox__input" type="checkbox" value="Домик" v-model="selectedCheckbox">
                 <span class="field-checkbox__name-text">Домик</span>
             </label>
             </div>
@@ -88,7 +88,7 @@
             <button class="btn  btn--form">Применить</button>
             <button class="btn  btn--form-inverse">Сбросить фильтр</button>
         </div>
-        <span>Выбрано: {{selected}}</span>
+        <span>Выбрано: {{selectedCheckbox}}</span>
         </form>
     </modal>
 </template>
