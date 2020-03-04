@@ -149,6 +149,7 @@ padding-bottom: 162px;
     margin: 0;
     padding: 0;
     background-color: $background-color!important;
+    z-index: -1;
 }
 }
 
