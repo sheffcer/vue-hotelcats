@@ -165,6 +165,10 @@ data() {
     }
   }
 
+  & .field-actions {
+      margin-top: 2rem;
+  }
+
 }
 
 div.v--modal-box {
