@@ -6,7 +6,7 @@
         <div class="room__filters">
         <!-- <button class="btn  btn--filter" v-on:click="show">Фильтры</button> -->
         <button class="btn  btn--filter" @click="$modal.show('adaptive')">Фильтры</button>
-        <ModalAdaptive />
+        <ModalAdaptive v-bind:title="title" v-bind:text="text" />
         <FilterModal name="FilterModal"/>
         <!-- <modal name="hello-world">
             hello, world!
@@ -254,7 +254,7 @@ components: {
 },
 data () {
     return {
-    title: 'Спасибо за заявку',
+    title: 'Цена за сутки, ₽',
     text: 'Мы свяжемся с вами в ближайшее время',
     sliderValue: 3,
     selected: 'A',
