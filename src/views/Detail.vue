@@ -30,7 +30,7 @@
         <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
         </agile> -->
          <carousel
-            :starting-image="2"
+            :starting-image="0"
             :images="room.images"
             ></carousel>
          </div>
@@ -365,20 +365,19 @@ methods: {
 //     // this.reload()
 // },
 mounted () {
-    this.asNavFor1.push(this.$refs.thumbnails)
-    this.asNavFor2.push(this.$refs.main)
+    // this.asNavFor1.push(this.$refs.thumbnails)
+    // this.asNavFor2.push(this.$refs.main)
 },
 beforeMount() {
     let curId = this.id
     console.log(curId)
-    this.curThumbs = this.rooms[curId - 4].thumbs
-    for (let i = 0; i < this.curThumbs.lenght; i++) {
-        this.thumbs.push(this.curThumbs[i])
-        console.log(this.curThumbs[i])
-    }
+    // this.curThumbs = this.rooms[curId - 4].thumbs
+    // for (let i = 0; i < this.curThumbs.lenght; i++) {
+    //     this.thumbs.push(this.curThumbs[i])
+    //     console.log(this.curThumbs[i])
+    // }
 
-    // console.dir(this.thumbs)
-    console.log(this.curThumbs)
+    // console.log(this.curThumbs)
 }
 }
 </script>
