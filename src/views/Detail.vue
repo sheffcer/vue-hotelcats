@@ -32,6 +32,7 @@
          <carousel
             :starting-image="0"
             :images="room.images"
+            :auto-slide-interval="4000"
             ></carousel>
          </div>
         <!-- <agile ref="thumbnails" :as-nav-for="[$refs.main]" :slides-to-show="4" autoplay>...</agile> -->
