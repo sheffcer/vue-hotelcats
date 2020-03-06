@@ -1,7 +1,7 @@
 <template>
 <header class="page-header">
     <div class="page-header__inner">
-    <div class="logo">
+    <div class="logo" v-on:click="logoCloseMenu">
         <router-link to="/">
         <picture>
             <source media="(min-width: 1366px)" srcset="/img/logo-desktop.svg">
@@ -56,6 +56,14 @@ methods: {
             link.addEventListener("click", () => {
             document.body.classList.remove("nav-open")
             })
+        })
+    },
+
+    logoCloseMenu: () => {
+        let logo = document.querySelector(".logo")
+        console.log(logo)
+        logo.addEventListener("click", () => {
+            document.body.classList.toggle("nav-open")
         })
     }
     }
