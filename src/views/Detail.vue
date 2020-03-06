@@ -420,6 +420,7 @@ beforeMount() {
 
         @media (min-width: $screen-md) {
             margin: 0;
+            margin-top: -10px;
             font-weight: bold;
             font-size: 36px;
             line-height: 43px;
@@ -552,6 +553,9 @@ beforeMount() {
 
     @media (min-width: $screen-md) {
         width: 206px!important;
+        // margin-top: 30px;
+        padding-left: 0;
+        margin-left: -30px; 
     }
 
     &::after {
