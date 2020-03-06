@@ -61,7 +61,7 @@ methods: {
 
     logoCloseMenu: () => {
         let logo = document.querySelector(".logo")
-        console.log(logo)
+        // console.log(logo)
         logo.addEventListener("click", () => {
             document.body.classList.remove("nav-open")
         })
