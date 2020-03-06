@@ -3,11 +3,10 @@
     <div class="detail__inner">
     <!-- <h2>the product id is :{{this.$route.params.Pid}}</h2> -->
     <div class="" v-for="(room,index) in rooms" :key="index">
-     <div class="detail__item" v-if="id == room.id">
-         
-       <div class="detail__item-wrap">
-          
-       <!-- <picture class="detail__img-wrap">
+        <div class="detail__item" v-if="id == room.id">
+        <div class="detail__item-wrap">
+
+        <!-- <picture class="detail__img-wrap">
             <source media="(min-width: 1366px)" v-bind:srcset="'/' + room.img_desktop">
             <source media="(min-width: 768px)" v-bind:srcset="'/' + room.img_tablet">
             <img v-bind:src="'/' + room.img_mobile" v-bind:alt="room.img_mobile.slice(4)">
@@ -16,7 +15,7 @@
         <img v-bind:src="'/' + room.detail" v-bind:alt="room.detail.slice(4)">
         </div> -->
         <div class="detail__img-wrap">
-          <!-- <lingallery  :iid.sync="room.items.id" v-bind:key="room.items"/> -->
+        <!-- <lingallery  :iid.sync="room.items.id" v-bind:key="room.items"/> -->
         <!-- <agile class="main" ref="main" :options="options1" :as-nav-for="asNavFor1">
             <div class="slide" v-for="(thumb, index) in curThumbs" v-bind:key="index" v-bind:class="`slide--${index}`">
                 <img :src="'/' + thumb"/>
@@ -29,12 +28,13 @@
         <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
         <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
         </agile> -->
-         <carousel
+        <carousel
             :starting-image="0"
             :images="room.images"
             :auto-slide-interval="4000"
-            ></carousel>
-         </div>
+        >
+        </carousel>
+        </div>
         <!-- <agile ref="thumbnails" :as-nav-for="[$refs.main]" :slides-to-show="4" autoplay>...</agile> -->
         <!-- <h2>{{room.title}}</h2> -->
         <div class="detail__wrap">
@@ -62,7 +62,7 @@
             <a href="" class="btn  btn--detail" v-on:click.prevent="reserveRoom">Забронировать</a>
         </div>
         </div>
-     </div>
+    </div>
     </div>
     </div>
     <RoomSlider/>
@@ -105,25 +105,26 @@ data () {
             tooltips: ['Пустой номер'],
             detail: 'img/room_04-detail_desktop.jpg',
             thumbs: ['img/room_04-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg'],
-            images: [{
-                id:'someid1',
-                big: 'img/room_04-detail_desktop.jpg',
-                thumb: 'img/room_04-detail_desktop.jpg',
+            images: [
+                {
+                    id:'someid1',
+                    big: 'img/room_04-detail_desktop.jpg',
+                    thumb: 'img/room_04-detail_desktop.jpg',
                 },
                 {
-                id:'someid2',
-                big: 'img/house.jpg',
-                thumb: 'img/house.jpg',
+                    id:'someid2',
+                    big: 'img/house.jpg',
+                    thumb: 'img/house.jpg',
                 },
                 {
-                id:'someid3',
-                big: 'img/game-complex.jpg',
-                thumb: 'img/game-complex.jpg',
+                    id:'someid3',
+                    big: 'img/game-complex.jpg',
+                    thumb: 'img/game-complex.jpg',
                 },
                 {
-                id:'someid4',
-                big: 'img/claw-point.jpg',
-                thumb: 'img/claw-point.jpg',
+                    id:'someid4',
+                    big: 'img/sunbed.jpg',
+                    thumb: 'img/sunbed.jpg',
                 },
             ]},
         {
@@ -139,25 +140,26 @@ data () {
             tooltips: ['Лежак', 'Когтеточка'],
             detail: 'img/room_05-detail_desktop.jpg',
             thumbs: ['img/room_05-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg'],
-            images: [{
-                id:'someid1',
-                big: 'img/room_05-detail_desktop.jpg',
-                thumb: 'img/room_05-detail_desktop.jpg',
+            images: [
+                {
+                    id:'someid1',
+                    big: 'img/room_05-detail_desktop.jpg',
+                    thumb: 'img/room_05-detail_desktop.jpg',
                 },
                 {
-                id:'someid2',
-                big: 'img/house.jpg',
-                thumb: 'img/house.jpg',
+                    id:'someid2',
+                    big: 'img/house.jpg',
+                    thumb: 'img/house.jpg',
                 },
                 {
-                id:'someid3',
-                big: 'img/game-complex.jpg',
-                thumb: 'img/game-complex.jpg',
+                    id:'someid3',
+                    big: 'img/game-complex.jpg',
+                    thumb: 'img/game-complex.jpg',
                 },
                 {
-                id:'someid4',
-                big: 'img/claw-point.jpg',
-                thumb: 'img/claw-point.jpg',
+                    id:'someid4',
+                    big: 'img/sunbed.jpg',
+                    thumb: 'img/sunbed.jpg',
                 },
             ]
         },
@@ -174,25 +176,26 @@ data () {
             tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс'],
             detail: 'img/room_06-detail_desktop.jpg',
             thumbs: ['img/room_06-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg'],
-            images: [{
-                id:'someid1',
-                big: 'img/room_06-detail_desktop.jpg',
-                thumb: 'img/room_06-detail_desktop.jpg',
+            images: [
+                {
+                    id:'someid1',
+                    big: 'img/room_06-detail_desktop.jpg',
+                    thumb: 'img/room_06-detail_desktop.jpg',
                 },
                 {
-                id:'someid2',
-                big: 'img/house.jpg',
-                thumb: 'img/house.jpg',
+                    id:'someid2',
+                    big: 'img/house.jpg',
+                    thumb: 'img/house.jpg',
                 },
                 {
-                id:'someid3',
-                big: 'img/game-complex.jpg',
-                thumb: 'img/game-complex.jpg',
+                    id:'someid3',
+                    big: 'img/game-complex.jpg',
+                    thumb: 'img/game-complex.jpg',
                 },
                 {
-                id:'someid4',
-                big: 'img/claw-point.jpg',
-                thumb: 'img/claw-point.jpg',
+                    id:'someid4',
+                    big: 'img/sunbed.jpg',
+                    thumb: 'img/sunbed.jpg',
                 },
             ]
         },
@@ -209,25 +212,26 @@ data () {
             tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс'],
             detail: 'img/room_07-detail_desktop.jpg',
             thumbs: ['img/room_07-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg'],
-            images: [{
-                id:'someid1',
-                big: 'img/room_07-detail_desktop.jpg',
-                thumb: 'img/room_07-detail_desktop.jpg',
+            images: [
+                {
+                    id:'someid1',
+                    big: 'img/room_07-detail_desktop.jpg',
+                    thumb: 'img/room_07-detail_desktop.jpg',
                 },
                 {
-                id:'someid2',
-                big: 'img/house.jpg',
-                thumb: 'img/house.jpg',
+                    id:'someid2',
+                    big: 'img/house.jpg',
+                    thumb: 'img/house.jpg',
                 },
                 {
-                id:'someid3',
-                big: 'img/game-complex.jpg',
-                thumb: 'img/game-complex.jpg',
+                    id:'someid3',
+                    big: 'img/game-complex.jpg',
+                    thumb: 'img/game-complex.jpg',
                 },
                 {
-                id:'someid4',
-                big: 'img/claw-point.jpg',
-                thumb: 'img/claw-point.jpg',
+                    id:'someid4',
+                    big: 'img/sunbed.jpg',
+                    thumb: 'img/sunbed.jpg',
                 },
             ]
         },
@@ -244,25 +248,26 @@ data () {
             tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс', 'Домик'],
             detail: 'img/room_08-detail_desktop.jpg',
             thumbs: ['img/room_08-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg'],
-            images: [{
-                id:'someid1',
-                big: 'img/room_08-detail_desktop.jpg',
-                thumb: 'img/room_08-detail_desktop.jpg',
+            images: [
+                {
+                    id:'someid1',
+                    big: 'img/room_08-detail_desktop.jpg',
+                    thumb: 'img/room_08-detail_desktop.jpg',
                 },
                 {
-                id:'someid2',
-                big: 'img/house.jpg',
-                thumb: 'img/house.jpg',
+                    id:'someid2',
+                    big: 'img/house.jpg',
+                    thumb: 'img/house.jpg',
                 },
                 {
-                id:'someid3',
-                big: 'img/game-complex.jpg',
-                thumb: 'img/game-complex.jpg',
+                    id:'someid3',
+                    big: 'img/game-complex.jpg',
+                    thumb: 'img/game-complex.jpg',
                 },
                 {
-                id:'someid4',
-                big: 'img/claw-point.jpg',
-                thumb: 'img/claw-point.jpg',
+                    id:'someid4',
+                    big: 'img/sunbed.jpg',
+                    thumb: 'img/sunbed.jpg',
                 },
             ]
         },
@@ -279,25 +284,26 @@ data () {
             tooltips: ['Лежак', 'Когтеточка', 'Игровой-комплекс', 'Домик'],
             detail: 'img/room_09-detail_desktop.jpg',
             thumbs: ['img/room_09-detail_desktop.jpg', 'img/house.jpg', 'img/game-complex.jpg', 'img/claw-point.jpg', 'img/sunbed.jpg'],
-            images: [{
-                id:'someid1',
-                big: 'img/room_09-detail_desktop.jpg',
-                thumb: 'img/room_09-detail_desktop.jpg',
+            images: [
+                {
+                    id:'someid1',
+                    big: 'img/room_09-detail_desktop.jpg',
+                    thumb: 'img/room_09-detail_desktop.jpg',
                 },
                 {
-                id:'someid2',
-                big: 'img/house.jpg',
-                thumb: 'img/house.jpg',
+                    id:'someid2',
+                    big: 'img/house.jpg',
+                    thumb: 'img/house.jpg',
                 },
                 {
-                id:'someid3',
-                big: 'img/game-complex.jpg',
-                thumb: 'img/game-complex.jpg',
+                    id:'someid3',
+                    big: 'img/game-complex.jpg',
+                    thumb: 'img/game-complex.jpg',
                 },
                 {
-                id:'someid4',
-                big: 'img/claw-point.jpg',
-                thumb: 'img/claw-point.jpg',
+                    id:'someid4',
+                    big: 'img/sunbed.jpg',
+                    thumb: 'img/sunbed.jpg',
                 },
             ]
         },
