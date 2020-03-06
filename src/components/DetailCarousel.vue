@@ -1,11 +1,11 @@
 <template>
-    <div class="card-carousel" @mouseover="stopTimer" @mouseleave="restartTimer">
-        <div class="progressbar" v-if="autoSlideInterval && showProgressBar">
+    <div class="carousel" @mouseover="stopTimer" @mouseleave="restartTimer">
+        <div class="carousel__progressbar" v-if="autoSlideInterval && showProgressBar">
             <div :style="{width: progressBar + '%' }"></div>
         </div>
-        <div class="card-img">
+        <div class="carousel__img">
             <img :src="'/' + currentImage" alt="">
-            <!-- <div class="actions">
+            <!-- <div class="carousel__actions">
                 <span @click="prevImage" class="prev">
                     &#8249;
                 </span>
@@ -14,11 +14,11 @@
                 </span>
             </div> -->
         </div>
-        <div class="thumbnails">
+        <div class="carousel__thumbnails">
             <div 
                 v-for="(image, index) in  images"
                 :key="index"
-                :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
+                :class="['carousel__thumbnail-image', (activeImage == index) ? 'active' : '']"
                 @click="activateImage(index)"
             >
                 <img :src="'/' + image.thumb">
@@ -142,11 +142,11 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/sass/grid-mixins.scss";
 @import "@/assets/sass/variables.scss";
-.card-carousel {
+.carousel {
     user-select: none;
     position: relative;
 }
-.progressbar {
+.carousel__progressbar {
     display: block;
     width: 100%;
     height: 5px;
@@ -154,22 +154,27 @@ export default {
     background-color: rgba(68, 46, 46, 0.25);
     z-index: 1;
 }
-.progressbar > div {
+.carousel__progressbar > div {
     background-color: rgba(255, 255, 255, 0.52);
     height: 100%;
 }
-.thumbnails {
+.carousel__thumbnails {
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
+    margin-top: 10px;
+
+    @media (min-width: $screen-md) {
+         margin-top: 15px;
+        }
 }
-.thumbnail-image {
+.carousel__thumbnail-image {
     display: flex;
     align-items: center;
     cursor: pointer;
     padding: 2px;
 }
-.thumbnail-image > img {
+.carousel__thumbnail-image > img {
     // width: 100%;
     width: 100px;
     height: auto;
@@ -186,20 +191,20 @@ export default {
 
 
 }
-.thumbnail-image:hover > img, 
-.thumbnail-image.active > img {
+.carousel__thumbnail-image:hover > img, 
+.carousel__thumbnail-image.active > img {
     opacity: 0.6;
     box-shadow: 2px 2px 6px 1px rgba(0,0,0, 0.5);
 }
-.card-img {
+.carousel__card-img {
     position: relative;
     margin-bottom: 15px;
 }
-.card-img > img {
+.carousel__card-img > img {
     display: block;
     margin: 0 auto;
 }
-.actions {
+.carousel__actions {
     font-size: 1.5em;
     height: 40px;
     position: absolute;
@@ -211,18 +216,18 @@ export default {
     justify-content: space-between;
     color: #585858;
 }
-.actions > span {
+.carousel__actions > span {
     cursor: pointer;
     transition: all 250ms;
     font-size: 45px;
 }
-.actions > span.prev {
+.carousel__actions > span.prev {
     margin-left: 5px;
 }
-.actions > span.next {
+.carousel__actions > span.next {
     margin-right: 5px;
 }
-.actions > span:hover {
+.carousel__actions > span:hover {
     color: #eee;
 }
 </style>
