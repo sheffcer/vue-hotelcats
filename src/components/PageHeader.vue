@@ -63,7 +63,7 @@ methods: {
         let logo = document.querySelector(".logo")
         console.log(logo)
         logo.addEventListener("click", () => {
-            document.body.classList.toggle("nav-open")
+            document.body.classList.remove("nav-open")
         })
     }
     }
