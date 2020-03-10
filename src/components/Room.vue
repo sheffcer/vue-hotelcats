@@ -8,10 +8,7 @@
         <button class="btn  btn--filter" @click="$modal.show('adaptive')">Фильтры</button>
         <ModalAdaptive v-bind:title="title" v-bind:text="text" />
         <FilterModal name="FilterModal"/>
-        <!-- <modal name="hello-world">
-            hello, world!
-        </modal> -->
-        <label class="field-select">
+            <label class="field-select">
             <div class="field-select__select-wrap">
             <select v-model="selected" class="field-select__select" >
                 <!-- <option disabled value="">Выберите вариант</option> -->
@@ -20,9 +17,8 @@
                 <option>&#8593; По площади</option>
                 <option>&#8595; По площади</option> -->
                 <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.value">
-               {{ option.text }}
+                    {{ option.text }}
                 </option>
-                
             </select>
             <!-- <span>  {{ selected }}</span> -->
             </div>
