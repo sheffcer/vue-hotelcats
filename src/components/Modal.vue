@@ -26,7 +26,7 @@
             >
               <div class="field-text__input-wrap">
                 <input
-                id="name"
+                id="petName"
                 v-model.trim="$v.petName.$model"
                 class="field-text__input  field-text__input--modal" type="text" placeholder="Имя питомца" >
                 <div class="error field-text__help-text" v-if="!$v.petName.required">Поле обязательно</div>
