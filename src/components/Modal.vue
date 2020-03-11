@@ -5,7 +5,13 @@
     <!-- <div class="modal-cart__inner"> -->
       <!-- <form action=""> -->
         <div class="modal-cart__content  modal-cart__content--form">
-        <form action="" name= "order" method="POST" data-netlify="true" netlify>
+        <form action=""
+        name= "order"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        netlify>
+        <input type="hidden" name="form-name" value="order" />
           <h2 class="modal-cart__title modal-cart__title--form">Забронировать номер</h2>
           <div class="fields-group  fields-group--modal">
             <label class="field-text  field-text--modal"
